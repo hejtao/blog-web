@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-闲言轻博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{template "comm/link.html"}}
+</head>
+<body class="lay-blog">
+	{{template "comm/header.html".}}
+
+	<div class="container-wrap">
+		<div class="container container-message container-details container-comment">
+				<div class="contar-wrap">
+					<div class="item">
+                        <!-- <div class="item-box  layer-photos-demo1 layer-photos-demo">
+                            <h3><a href="/note/{{.Key}}"> {{.note.Title}} </a></h3>
+                            <h5>发布于：<span> {{date .note.UpdatedAt "Y-m-d h:i:s"}} </span></h5>
+                            <p> {{.note.Summary}} </p>
+                        </div> -->
+					</div>	
+					<form class="layui-form" action="">
+						<input type="hidden" name="key" value="{{.note.Key}}">
+						<div class="layui-form-item layui-form-text">
+							<textarea  class="layui-textarea" name="content" style="resize:none" lay-verify="required" placeholder="写点什么啊"></textarea>
+						</div>
+						<div class="btnbox">
+							<button lay-submit class="layui-btn" lay-filter="comment">
+								确定
+							</button>
+						</div>
+					</form>
+				</div>
+		</div>
+	</div>
+
+	{{template "comm/footer.html" .}}
+
+	<script>
+    layui.use(['form','jquery','layer'], function () {
+     	var form = layui.form, $ = layui.jquery, layer = layui.layer;
+     	form.on('submit(comment)', function(form_data){
+     		$.post("/comment_config/save/"+form_data.field.key, {content: form_data.field.content}, function(bee_data){  //ajax 请求
+     			if (bee_data.code==4444) {                      //json的code
+                    layer.msg("评论成功", { icon: 1})
+
+                    if (bee_data.action) {                  //json的action
+                        setTimeout(function () {
+                            window.location.href=bee_data.action;
+                        }, 300); //停留300毫秒
+                    }             
+                } else{
+                    layer.msg("评论失败: "+bee_data.msg, { icon: 5});  //json的msg
+                } 
+     		}, "json").error(function(){
+     			layer.msg("网络异常", { icon: 2})
+     		});
+
+     		return false
+     	})   
+    });
+    </script>
+</body>
+
+</html>

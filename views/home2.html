@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-闲言轻博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{template "comm/link.html"}}
+</head>
+<body class="lay-blog">
+	{{template "comm/header.html" .}}
+	
+	<div class="container-wrap">
+		<div class="container container-message">
+				<!-- <div class="contar-wrap">
+					<h4 class="item-title">
+						<p><i class="layui-icon layui-icon-speaker"></i>公告：<span>欢迎来到我的轻博客</span></p>
+					</h4>
+
+					{{ range .notes }}
+					<div class="item">
+						{{template "comm/note_summary.html" .}}
+						
+					</div>
+					{{end}}
+					
+					<div id="LAY-msg-box">
+            		</div>
+
+            		<div id="test2" class="paging"></div>
+				</div> -->
+				<!-- {{if gt .page 1}}
+				<div class="item-btn">
+					<button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page -1}}&search={{.search}}'">
+					上一页
+					</button>
+				</div>
+				{{end}}
+				{{if lt .page .page_count}}
+				<div class="item-btn">
+					<button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page 1}}&search={{.search}}'">
+					下一页
+					</button>
+				</div>
+				{{end}} -->
+
+
+		</div>
+	</div>
+
+	{{template "comm/footer.html".}}
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-闲言轻博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{template "comm/link.html"}}
+</head>
+<body class="lay-blog">
+    {{template "comm/header.html".}}
+    <div class="container-wrap">
+        <div class="container">
+            <div class="contar-wrap">
+                <div class="item">
+                <div class="item-box  layer-photos-demo1 layer-photos-demo">
+                    <form class="layui-form" action="">
+                          <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-inline">
+                              <input type="text" name="email" required  
+                              lay-verify="required" placeholder="请输入邮箱" 
+                              autocomplete="on" class="layui-input">
+                            </div>
+                          </div>
+
+                          <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-inline">
+                              <input type="password" name="password" required lay-verify="required" 
+                              placeholder="请输入密码" autocomplete="on" class="layui-input">
+                            </div>
+                          </div>                         
+                          <div class="layui-form-item">
+                            <div class="layui-input-block">
+                              <button class="layui-btn" lay-submit lay-filter="login">登陆</button>  
+                              <button onclick="window.location.href='/reg'" class="layui-btn layui-btn-primary">注册</button>
+                            </div>
+                          </div>
+                    </form>
+
+                </div>
+                </div>
+            </div>      
+        </div>
+    </div>
+    {{template "comm/footer.html".}}
+
+    <script>
+    //Demo
+    layui.use(['form','jquery'], function(){
+      var form = layui.form,
+      $=layui.jquery;
+      //监听提交
+      form.on('submit(login)', function(FrontData){ //点击登陆按钮, FrontData 为向 <input name="*" ...> 中输入的数据
+        //layer.msg(JSON.stringify(data.field));
+        $.post("/login",FrontData.field,function(data){ //post 路由为 /login; data 为 beego.Controller.Data
+            if (data.code == 8888) {                      //json的code
+                layer.msg("登陆成功", { icon: 1})
+                if (data.action) {                  //json的action
+                    setTimeout(function () {
+                        window.location.href=data.action;
+                    }, 300); //停留300毫秒
+                }
+            } else{
+                layer.msg("登陆失败: "+data.msg, { icon: 5});  //json的msg
+            }
+        },"json").error(function(){ //为 beego.Controller.Data["json"]
+            layer.msg("网络异常", { icon: 2})
+        });
+        return false;
+      });
+    });
+    </script>
+</body>
+</html>
