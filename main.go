@@ -17,8 +17,8 @@ func initTemplate() {
 
 	beego.AddFuncMap(
 		"fix_bar",
-		func(a, b uint, c bool) bool {
-			if a == b && c {
+		func(a, b uint, c int, d bool) bool {
+			if a == b || c == 0 && d {
 				return true
 			}
 
@@ -48,5 +48,5 @@ func initSession() {
 func main() {
 	initSession()
 	initTemplate()
-	beego.Run()
+	beego.Run(":80")
 }

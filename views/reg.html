@@ -5,72 +5,92 @@
     <title>闲言轻博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {{template "comm/link.html"}}
-    <style>
-        .layui-form-label {
-            width: 60px;
-            padding: 9px 15px 9px 0px;
-        }
-        .layui-input-block {
-            margin-left: 80px;
-        }
-        @media screen and (max-width: 450px) {
-            .layui-form-item .layui-input-inline {
-                margin: 0 0 10px 80px;
-            }
-        }
-    </style>
+
+    <link href="/static/css/signin.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body class="lay-blog">
     {{template "comm/header.html".}}
 
+
+
+
+
     <div class="container-wrap">
         <div class="container">
             <div class="contar-wrap">
-                <div class="item">
-                    <div class="item-box">
-                        <form class="layui-form" action="">
+                <div class="item-login">
+
+
+                    <form class="form-signin layui-form text-center">
+
+                        <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
+                        <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">昵称</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="name" lay-verify="required"
-                                           placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                                    <input type="text" name="name" class="form-control" required lay-verify="required" placeholder="请输入昵称" autofocus >
                                 </div>
                             </div>
+
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">邮箱</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="email" lay-verify="required"
-                                           placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                                    <input type="email" name="email" class="form-control" required lay-verify="required" placeholder="请输入邮箱">
                                 </div>
                             </div>
+
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">密码</label>
                                 <div class="layui-input-inline">
-                                    <input type="password" name="password" lay-verify="required"
-                                           placeholder="请输入密码"
-                                           autocomplete="off" class="layui-input">
+                                    <input type="password" name="password" class="form-control" required lay-verify="required" placeholder="请输入密码">
                                 </div>
                             </div>
+
+
                             <div class="layui-form-item">
                                 <label class="layui-form-label">确认密码</label>
                                 <div class="layui-input-inline">
-                                    <input type="password2" name="password2" lay-verify="required"
-                                           placeholder="请输入密码"
-                                           autocomplete="off" class="layui-input">
+                                    <input type="password" name="password2" class="form-control" required lay-verify="required" placeholder="请再输密码">
                                 </div>
                             </div>
+
+
                             <div class="layui-form-item">
-                                <div class="layui-input-block">
-                                    <button class="layui-btn" lay-submit lay-filter="reg">确认</button>
-                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                                </div>
+                               
+                                 <button class="btn btn-lg btn-primary btn-block" lay-submit lay-filter="reg">确认</button> 
+                                 <button class="btn btn-lg btn-secondary btn-block" type="reset">重置</button>     
+                               
                             </div>
+
+                             <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
                         </form>
-                    </div>
+
+
+                
                 </div>
-            </div>
+            </div>      
         </div>
     </div>
+
+
+
+
+
+
+
+    
+
+
+                        
+
+
+
+
 
     {{template "comm/footer.html" .}}
     
@@ -80,21 +100,21 @@
       var form = layui.form,
       $=layui.jquery;
       //监听提交
-      form.on('submit(reg)', function(rdata){
+      form.on('submit(reg)', function(form_data){
         //layer.msg(JSON.stringify(data.field));
-        $.post("/reg",rdata.field,function(data){
-            if (data.code==10) {                      //json的code
-                layer.msg("注册成功")
-                if (data.action) {                  //json的action
+        $.post("/reg", form_data.field, function(bee_data){
+            if (bee_data.code=="AAAA") {                      //json的code
+                layer.msg("注册成功", { icon: 1})
+                if (bee_data.action) {                  //json的action
                     setTimeout(function () {
-                        window.location.href=data.action;
+                        window.location.href=bee_data.action;
                     }, 500); //停留300毫秒
                 }
             } else{
-                layer.msg("注册失败: "+data.msg);  //json的msg
+                layer.msg("注册失败: "+bee_data.msg, { icon: 5});  //json的msg
             }
         },"json").error(function(){
-            layer.msg("网络异常")
+            layer.msg("网络异常", { icon: 2})
         });
         return false;
       });

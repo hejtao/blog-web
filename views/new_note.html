@@ -52,7 +52,7 @@
                                     </div>
                                 </form>
 
-                                <!-- <div class="layui-form-item">
+                                <div class="layui-form-item">
                                     <input type="hidden" id="files" name="files" value="">
                                     <div class="layui-upload">
                                         <button type="button" class="layui-btn layui-btn-normal"
@@ -74,7 +74,7 @@
                                         </div>
                                         <button type="button" class="layui-btn" id="testListAction">开始上传</button>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
     </div>
 </div>
 {{ template "comm/footer.html" .}}
-<script src="static/lib/wangEditor.js"></script>
+<script src="/static/lib/wangEditor.js"></script>
 <script>
     //Demo
     layui.use(['form','jquery'], function () {
@@ -109,7 +109,7 @@
                     if (bee_data.action) {                  //json的action
                         setTimeout(function () {
                             window.location.href=bee_data.action;
-                        }, 500); //停留300毫秒
+                        }, 300); //停留300毫秒
                     }
                 } else{
                     layer.msg("文章保存失败: "+bee_data.msg, { icon: 5});  //json的msg

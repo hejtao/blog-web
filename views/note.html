@@ -24,25 +24,31 @@
 					</div>
 				</div>	
 				
+
 				<div class="comt layui-clear">
-					{{if .isLogin}} 
-					<a class="pull-right">写评论</a>
+
 					<input type="hidden" id="noteKey" value="{{.note.Key}}">
+					{{if .isLogin}}
+
+					<br>
 					<form class="layui-form" action="">
 			                <div class="layui-form-item layui-form-text">
-			                    <textarea class="layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none"></textarea>
+			                    <textarea class="xiaohe layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none;"></textarea>
 			                </div>
 		            </form>
-		            <div class="item-btn pull-left">
+		            <div class="item-btn pull-right">
 		                <button class="layui-btn layui-btn-normal" id="item-btn-cmt">提交</button>
 		            </div>
-		            
-		            <div id="LAY-msg-box">
-
-		            </div>
-		            <div id="test3" class="paging"></div>
 		            {{end}}
+
+		             <div id="LAY-msg-box" class="comt layui-clear">
+
+			        </div>
+			        <div id="test3" class="paging comt layui-clear"></div>
+		           
 	            </div>
+	           
+		        
 
 			</div>
 		</div>
@@ -51,27 +57,69 @@
 	{{template "comm/footer.html" .}}
 
 
-	{{str2html `<script id="LAY-msg-tpl" type="text/html">
-				    <div class="comt layui-clear">
+	<!-- {{str2html `<script id="LAY-msg-tpl" type="text/html">
+				   
+				   
 				        <div class="info-item">
-				            <img class="info-img" src="{{ d.avatar }}" alt="">
+				            <img class="info-img" style="max-height: 35px" src="{{ d.avatar }}" alt="">
 				            <div class="info-text">
+				                <p class="title count">
+				                    <span class="name">{{ d.name }}</span>
+
+				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+				                    	<span class="value">{{ d.likes }}</span>
+									</span>
+				                </p>
+
+				                <p class="info-intr">
+				                {{ d.content }}
+				                </p>
+
+				                <p>	
+									<a href="" class="name pull-right" style="padding-right:30px">删除</a>
+				                </p>
+
+				            </div>
+				        </div>
+				   
+				    
+				</script>`}} -->
+
+
+	{{str2html `<script id="LAY-msg-tpl-a" type="text/html">
+				    
+				        <div class="info-item-cmt">
+				            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
+				            <div class="info-text-cmt">
 				                <p class="title count">
 				                    <span class="name">{{ d.name }}</span>
 				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
 				                    <span class="value">{{ d.likes }}</span>
-									 </span>
+									 	</span>
 				                </p>
+
 				                <p class="info-intr">
 				                {{ d.content }}
 				                </p>
-				            </div>
-				        </div>
-				    </div>
+				</script>`}}
+
+	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
+				                <p class="delete-cmt">
+									<span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
+									<hr style="width:70px; margin-left:600px">
+								</p>
 				</script>`}}
 
 
-	{{if fix_bar .user.ID .note.AuthorID .isLogin}}
+	{{str2html `<script id="LAY-msg-tpl-c" type="text/html">
+
+				            </div>
+				        </div>
+				    
+				</script>`}}
+
+
+	{{if fix_bar .user.ID .note.AuthorID .user.Role .isLogin}}
 	<script> // 固定按钮的js
 		//var user_id = {{.user.ID}}
 		//var author_id = {{.note.AuthorID}}

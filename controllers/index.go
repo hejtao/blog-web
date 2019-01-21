@@ -83,12 +83,14 @@ func (this *IndexController) GetAbout() {
 }
 
 // @router /login [get]
-func (this *IndexController) GetUser() {
+func (this *IndexController) Login() {
+	// this.TplName = "login.html"
+
 	this.TplName = "login.html"
 }
 
 // @router /reg [get]
-func (this *IndexController) GetReg() {
+func (this *IndexController) Regislation() {
 	this.TplName = "reg.html"
 }
 

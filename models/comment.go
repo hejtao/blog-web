@@ -34,3 +34,11 @@ func QueryCommentsWithPage(key string, page, limit int) (msgs []*Comment, err er
 func QueryCommentCount(key string) (count int, err error) { //留言或评论的总数, 当 key 为空时是留言
 	return count, db.Model(&Comment{}).Where("Key = ?", key).Count(&count).Error
 }
+
+func DeleteCommentWithKey(key string) error {
+	if err := db.Delete(&Comment{}, "Comment_Key = ?", key).Error; err != nil {
+		return err
+	}
+
+	return nil
+}

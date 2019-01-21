@@ -14,7 +14,7 @@
 		<div class="container container-message">
 				<div class="contar-wrap">
 					<h4 class="item-title">
-						<p><i class="layui-icon layui-icon-speaker" style="color: #1E9FFF;"></i>公告：<span>欢迎来到米琴香光的轻博客</span></i>  </p>
+						<p><i class="layui-icon layui-icon-speaker" style="color: #FF0000;"></i>公告：<span>欢迎来到米琴香光的轻博客</span></i>  </p>
 						 
 					</h4>
 					
@@ -37,7 +37,8 @@
 				    <div class="item">
 						<div class="item-box  layer-photos-demo1 layer-photos-demo">
 							<h3><a href="/note/{{ d.key }}"> {{ d.title }} </a></h3>
-							<h5>发布于：<span> {{d.update_time}} </span></h5>
+							<h5> <span> {{d.update_time}} </span>&nbsp&nbsp<span> {{d.author}} </span></h5>
+							
 							<p> {{d.summary}} </p>
 						</div>	
 					</div>

@@ -4,43 +4,56 @@
     <meta charset="UTF-8">
     <title>评论-闲言轻博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{{template "comm/link.html"}}
+
+    {{template "comm/link.html"}}
+
+    <link href="/static/css/signin.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .w-e-toolbar{
+            flex-wrap: wrap;
+            font-size: 14px
+        }
+    </style>
+
+
 </head>
 <body class="lay-blog">
-    {{template "comm/header.html".}}
+    
+
+      {{template "comm/header.html"}}
+
     <div class="container-wrap">
         <div class="container">
-            <div class="contar-wrap">
-                <div class="item">
-                <div class="item-box  layer-photos-demo1 layer-photos-demo">
-                    <form class="layui-form" action="">
-                          <div class="layui-form-item">
-                            <label class="layui-form-label">邮箱</label>
-                            <div class="layui-input-inline">
-                              <input type="text" name="email" required  
-                              lay-verify="required" placeholder="请输入邮箱" 
-                              autocomplete="on" class="layui-input">
-                            </div>
-                          </div>
+            
+                <div class="item-login">
+                 
+                
 
-                          <div class="layui-form-item">
-                            <label class="layui-form-label">密码</label>
-                            <div class="layui-input-inline">
-                              <input type="password" name="password" required lay-verify="required" 
-                              placeholder="请输入密码" autocomplete="on" class="layui-input">
-                            </div>
-                          </div>                         
-                          <div class="layui-form-item">
-                            <div class="layui-input-block">
-                              <button class="layui-btn" lay-submit lay-filter="login">登陆</button>  
-                              <button onclick="window.location.href='/reg'" class="layui-btn layui-btn-primary">注册</button>
-                            </div>
-                          </div>
+
+                    <form class="form-signin layui-form text-center">
+                      <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
+                      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                     
+                      <input type="email" name="email" class="form-control" placeholder="邮箱" required autofocus lay-verify="required">
+                     
+                      <input type="password" name="password" class="form-control" placeholder="密码" required autofocus lay-verify="required">
+                      <div class="checkbox mb-3">
+                       
+                          <input type="checkbox" name="checkbox">记住本次登陆
+                        
+                      </div>
+                      <button class="btn btn-lg btn-primary btn-block" lay-submit lay-filter="login">登陆</button> 
+                      <button class="btn btn-lg btn-secondary btn-block" onclick="window.location.href='/reg'">注册</button>
+                      
+                      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
                     </form>
 
+
+                
                 </div>
-                </div>
-            </div>      
+               
         </div>
     </div>
     {{template "comm/footer.html".}}
@@ -51,9 +64,9 @@
       var form = layui.form,
       $=layui.jquery;
       //监听提交
-      form.on('submit(login)', function(FrontData){ //点击登陆按钮, FrontData 为向 <input name="*" ...> 中输入的数据
+      form.on('submit(login)', function(from_data){ //点击登陆按钮, FrontData 为向 <input name="*" ...> 中输入的数据
         //layer.msg(JSON.stringify(data.field));
-        $.post("/login",FrontData.field,function(data){ //post 路由为 /login; data 为 beego.Controller.Data
+        $.post("/login",from_data.field,function(data){ //post 路由为 /login; data 为 beego.Controller.Data
             if (data.code == 8888) {                      //json的code
                 layer.msg("登陆成功", { icon: 1})
                 if (data.action) {                  //json的action
@@ -71,5 +84,6 @@
       });
     });
     </script>
+
 </body>
 </html>

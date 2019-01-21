@@ -17,7 +17,7 @@ func (this *NoteController) NextControllerPrepare() {
 		this.Abort500(my_errors.NotLoginError{})
 	}
 
-	if this.User.Role != 0 { //不是管理员
+	if this.User.Role == 10 { //是游客
 		this.Abort500(my_errors.New("权限不足", nil))
 	}
 }
@@ -25,7 +25,10 @@ func (this *NoteController) NextControllerPrepare() {
 ///note_config
 // @router /new [get]
 func (this *NoteController) NewNote() { //写博客按钮触发
-	this.Data["key"] = this.UUID()
+	var note models.Note
+	note.Key = this.UUID()
+	this.Data["note"] = note
+
 	this.TplName = "new_note.html"
 }
 
@@ -33,7 +36,11 @@ func (this *NoteController) NewNote() { //写博客按钮触发
 // @router /edit/:key [get]
 func (this *NoteController) EditNote() { //修改博客按钮触发
 	key := this.Ctx.Input.Param(":key")
-	note, _ := models.QueryNoteWithKey(key)
+	note, err := models.QueryNoteWithKey(key)
+	if err != nil {
+		this.Abort500(my_errors.New("编辑文章时发生系统错误", err))
+	}
+
 	this.Data["note"] = note
 
 	this.TplName = "new_note.html"
@@ -70,6 +77,7 @@ func (this *NoteController) SaveNote() { //提交按钮触发
 		summary,
 		this.User.ID,
 	)
+
 	if err != nil {
 		this.Abort500(my_errors.New("保存文章时发生系统错误：", err))
 	}

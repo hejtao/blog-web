@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
 )
 
@@ -41,7 +42,11 @@ func GetAndUpdateLikes(table, key string, author_id uint) (likes_value, code int
 	// }
 
 	if likes_value, err = updateLikes(table, key, 0); err != nil {
+		fmt.Println("000000000000000000000000000000000000000000000")
+		fmt.Println(table)
+		fmt.Println(key)
 		return 0, 0, "", err
+
 	}
 	return likes_value, 2222, "点过赞了", nil
 }

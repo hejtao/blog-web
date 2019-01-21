@@ -33,7 +33,7 @@ func (this *LikesController) Likes() {
 		table = "notes"
 
 	default:
-		this.Abort500(my_errors.New("点赞时发生系统错误", nil))
+		this.Abort500(my_errors.New("发生系统错误", nil))
 	}
 
 	likes_value, code, msg, err := models.GetAndUpdateLikes(table, key, this.User.ID)

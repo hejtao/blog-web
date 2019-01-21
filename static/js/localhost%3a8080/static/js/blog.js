@@ -187,7 +187,7 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
     var elemCont = $('#LAY-msg-content')
     ,content = elemCont.val();
     if(content.replace(/\s/g, '') == ""){
-      layer.msg('请先输入留言啊啊啊啊');
+      layer.msg('请先输入留言');
       return elemCont.focus();
     }
 

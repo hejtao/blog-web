@@ -14,7 +14,7 @@ type User struct {
 	Email  string `gorm: "unique_index"`
 	Avatar string
 	Pwd    string //密码
-	Role   int    //0 管理员 1一般用户
+	Role   int    //0 管理员 1一般用户 10游客
 }
 
 func init() {
@@ -38,7 +38,7 @@ func init() {
 				Name:   "米琴香光",
 				Email:  "hejtao@outlook.com",
 				Pwd:    "123",
-				Avatar: "/static/images/info-img.png",
+				Avatar: "/static/images/admin.png",
 				Role:   0,
 			},
 		) //初始化一个管理员

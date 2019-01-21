@@ -53,7 +53,7 @@ func AddNote(author User, key, title, content, summary string, author_id uint) e
 		note_existed.CreatedAt = time.Now()
 	}
 
-	if err := db.Save(note_existed).Error; err != nil {
+	if err := db.Save(&note_existed).Error; err != nil {
 		return err
 	}
 
@@ -73,7 +73,7 @@ func DeleteNoteWithKey(key string) error {
 }
 
 func QueryNoteWithKey(key string) (note Note, err error) {
-	return note, db.Where("Key = ?", key).Take(&note).Error
+	return note, db.Preload("Author").Where("Key = ?", key).Take(&note).Error
 }
 
 //获取文章并更新 Visits
@@ -118,7 +118,7 @@ func QueryNoteAndUpdateVisits(key string) (note Note, err error) {
 }
 
 func QueryNotesWithPage(search string, page, limit int) (notes []*Note, err error) {
-	return notes, db.Where("Title like ?", fmt.Sprintf("%%%s%%", search)).Order("Created_At desc").Offset((page - 1) * limit).Limit(limit).Find(&notes).Error //跳过前 (page-1)*limit 条 note，得到属于第一页的 note
+	return notes, db.Preload("Author").Where("Title like ?", fmt.Sprintf("%%%s%%", search)).Order("Created_At desc").Offset((page - 1) * limit).Limit(limit).Find(&notes).Error //跳过前 (page-1)*limit 条 note，得到属于第一页的 note
 }
 
 func QueryNoteCount(search string) (count int, err error) { //note 的总数

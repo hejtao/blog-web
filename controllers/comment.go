@@ -9,19 +9,12 @@ type CommentController struct {
 	BaseController
 }
 
-var key string
+// func (this *CommentController) NextControllerPrepare() {
+// 	if !this.IsLogin { //未登录
+// 		this.Abort500(my_errors.NotLoginError{})
+// 	}
 
-func (this *CommentController) NextControllerPrepare() {
-	if !this.IsLogin { //未登录
-		this.Abort500(my_errors.NotLoginError{})
-	}
-
-	if str, ok := this.Data["key"].(string); ok { //来自 index.go NoteDetail()
-		key = str
-
-	}
-
-}
+// }
 
 ///comment_config
 // @router /new/:key [get]
@@ -39,6 +32,10 @@ func (this *CommentController) NextControllerPrepare() {
 ///comment_config
 // @router /save/?:key [post]
 func (this *CommentController) SaveComment() {
+	if !this.IsLogin { //未登录
+		this.Abort500(my_errors.NotLoginError{})
+	}
+
 	key := this.Ctx.Input.Param(":key")
 	content := this.GetString("content", "")
 	comment_key := this.UUID()
@@ -74,9 +71,18 @@ func (this *CommentController) SaveComment() {
 }
 
 ///comment_config
-// @router /count/?:key [get]
+// @router /count/:comment_key/?:key [get]
 func (this *CommentController) CommentCount() {
-	key := this.Ctx.Input.Param(":key")
+	comment_key := this.Ctx.Input.Param(":comment_key")
+	key := this.Ctx.Input.Param(":key") //文章的key
+
+	if comment_key != "placeholder" {
+		err := models.DeleteCommentWithKey(comment_key)
+		if err != nil {
+			this.Abort500(my_errors.New("删除留言或评论时发生系统错误", nil))
+		}
+	}
+
 	count, err := models.QueryCommentCount(key) //该文章的所有评论总数
 	if err != nil {
 		this.Abort500(my_errors.New("系统错误", err))
@@ -109,10 +115,14 @@ func (this *CommentController) CommentPageination() {
 		this.Abort500(my_errors.New("系统错误", err))
 	}
 
+	user := this.User
+
 	this.ReturnJson(
 		StringMap{
 			"code":     5555,
 			"comments": comments,
+			"user":     user,
+			"is_login": this.IsLogin,
 		},
 	)
 }
