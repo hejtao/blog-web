@@ -90,6 +90,7 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
         if(bee_data.code == 5555){
 
           var comments = bee_data.comments,
+              dates = bee_data.dates,
               user = bee_data.user,
               is_login = bee_data.is_login,
               html = "";
@@ -99,14 +100,14 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
        
 
           for (var i = 0; i < comments.length; i++) {  //管理员或作者可以删除留言或评论
-              html += DrawComment(view1, comments[i]);
+              html += DrawComment(view1, comments[i], dates[i]);
 
               if( is_login && (user.ID == comments[i].Author.ID || user.Role == 0) ){
                   view2 = $('#LAY-msg-tpl-b').html();
-                  html = html + DrawComment(view2, comments[i]);
+                  html = html + DrawComment(view2, comments[i], dates[i]);
               }
 
-              html = html + DrawComment(view3, comments[i]);
+              html = html + DrawComment(view3, comments[i], dates[i]);
               
           }
           var $html = $(html);
@@ -128,7 +129,7 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
     });
   }
 
-  function DrawComment(view, x){
+  function DrawComment(view, x, y){
     //var view = $('#LAY-msg-tpl').html(), //获取 message.html 中相应的 html 代码
 
       //模版数据
@@ -138,6 +139,7 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
         likes: x.Likes,
         content: x.Content,
         key: x.CommentKey,
+        date: y
       };
 
       return laytpl(view).render(data);
@@ -312,10 +314,9 @@ layui.define(['element', 'form','laypage','jquery','laytpl'],function(exports){
           var notes = bee_data.notes;
           var dates = bee_data.dates;
           var html = "";
-          var j = 0;
           for (var i = 0; i < notes.length; i++) {
             j = i;
-            html += DrawHome(notes[j], dates[j]);
+            html += DrawHome(notes[i], dates[i]);
           }
 
           var $html = $(html);

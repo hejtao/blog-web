@@ -13,6 +13,11 @@ func (this *LikesController) NextControllerPrepare() {
 	if !this.IsLogin { //未登录
 		this.Abort500(my_errors.NotLoginError{})
 	}
+
+	if this.User.Role == 10 { //未激活
+		this.Abort500(my_errors.UnactivatedError{})
+	}
+
 }
 
 ///likes

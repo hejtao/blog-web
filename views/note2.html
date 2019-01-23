@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论-闲言轻博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{{template "comm/link.html"}}
+</head>
+<body class="lay-blog">
+	{{template "comm/header.html" .}}
+
+	<div class="container-wrap">
+		<div class="container container-message container-details">
+				<div class="contar-wrap">
+					<div class="item">
+						<div class="item-box  layer-photos-demo1 layer-photos-demo">
+							{{template "comm/note_content.html" .note}}
+							<div class="count layui-clear">
+								<span class="pull-left">阅读 <em class="value"> {{add .note.Visits 1}} </em></span>
+								<span class="pull-right like" data-key="{{.note.Key}}" data-type="note"><i class="layui-icon layui-icon-praise"></i>
+								<em class="value">{{.note.Likes}}</em>
+								</span>
+							</div>
+						</div>
+					</div>	
+					
+					<div class="comt layui-clear">
+						{{if .isLogin}}   <a href="/comment_config/new/{{.note.Key}}" class="pull-right">写评论</a>
+
+						<form class="layui-form" action="">
+							<input type="hidden" name="key" value="{{.note.Key}}">
+							<div class="layui-form-item layui-form-text">
+								<textarea  class="layui-textarea" name="content" style="resize:none" lay-verify="required" placeholder="写点什么啊"></textarea>
+							</div>
+							<div class="btnbox">
+								<button lay-submit class="layui-btn" lay-filter="comment">
+									确定
+								</button>
+							</div>
+						</form>
+						{{end}}
+						
+					</div>
+					
+					<div id="LAY-msg-box">
+						{{range .comments}}
+						<div class="info-item">
+							<img class="info-img" src="{{.Author.Avatar}}" alt="">
+							<div class="info-text">
+								<p class="title count">
+									<span class="name"> {{.Author.Name}} </span>
+									<span class="info-img like" data-key="{{.CommentKey}}" data-type="comment"><i class="layui-icon layui-icon-praise"></i>  
+									<span class="value"> {{.Likes}}  </span> 
+									</span>
+								</p>
+								<p class="info-intr"> {{.Content}} </p>
+							</div>
+						</div>	
+						{{end}}	
+					</div>
+				</div>
+		</div>
+	</div>
+
+	{{template "comm/footer.html" .}}
+
+
+	<script> //评论确认按钮的js
+    layui.use(['form','jquery','layer'], function () {
+     	var form = layui.form, $ = layui.jquery, layer = layui.layer;
+     	form.on('submit(comment)', function(form_data){
+     		$.post("/comment_config/save/"+form_data.field.key, {content: form_data.field.content}, function(bee_data){  //ajax 请求
+     			if (bee_data.code==4444) {                      //json的code
+                    layer.msg("评论成功", { icon: 1})
+
+                    // if (bee_data.action) {                  //json的action
+                    //     setTimeout(function () {
+                    //         window.location.href=bee_data.action;
+                    //     }, 300); //停留300毫秒
+                    // }             
+                } else{
+                    layer.msg("评论失败: "+bee_data.msg, { icon: 5});  //json的msg
+                } 
+     		}, "json").error(function(){
+     			layer.msg("网络异常", { icon: 2})
+     		});
+
+     		return false
+     	})   
+    });
+    </script>
+
+	{{if fix_bar .user.ID .note.AuthorID .isLogin}}
+	<script> // 固定按钮的js
+		//var user_id = {{.user.ID}}
+		//var author_id = {{.note.AuthorID}}
+		var key = {{.note.Key}}
+		//var isLogin = {{.isLogin}}
+
+		layui.use(['util','jquery'], function(){
+  			var util = layui.util, $ = layui.jquery
+  
+  			//执行
+			util.fixbar({
+			bar1: '&#xe642',
+			bar2: '&#xe640',
+			click: function(type){
+      			console.log(type);
+      			if(type === 'bar1'){
+        		//alert('点击了bar1')
+        		window.location.href="/note_config/edit/"+key
+      			}
+
+      			if(type === 'bar2'){
+        		//alert('点击了bar1')
+	        		$.post("/note_config/delete/"+key, function(data){
+	        			if (data.code == 6666) {                      //json的code
+        					layer.msg("文章已删除", { icon: 1})
+			                if (data.action) {                  //json的action
+			                    setTimeout(function () {
+			                        window.location.href=data.action;
+			                    }, 500); //停留300毫秒
+        					}
+			            } else{
+			                layer.msg("文章删除失败: "+data.msg, { icon: 5});  //json的msg
+			            }
+	        		},"json").error(function(){
+    					layer.msg("网络异常", { icon: 2})
+					});
+      			}
+				}
+			});
+  			
+		});
+	</script>
+
+	{{else}}
+	<script>
+		layui.use('util', function(){
+  			var util = layui.util;
+			//执行
+			util.fixbar({ 
+			});
+		});
+	</script>
+	{{end}}
+
+</body>
+</html>

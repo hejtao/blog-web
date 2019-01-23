@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>闲言轻博客</title>
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {{template "comm/link.html"}}
 
@@ -25,7 +26,7 @@
 
                     <form class="form-signin layui-form text-center">
 
-                        <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
+                        <img class="mb-4" src="/static/images/icon.png" alt="" width="72" height="72">
                         <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
                             <div class="layui-form-item">
@@ -104,11 +105,11 @@
         //layer.msg(JSON.stringify(data.field));
         $.post("/reg", form_data.field, function(bee_data){
             if (bee_data.code=="AAAA") {                      //json的code
-                layer.msg("注册成功", { icon: 1})
+                layer.msg("注册成功, 但你的账号尚未激活, 请前往你的邮箱激活", { icon: 1, time: 3000})
                 if (bee_data.action) {                  //json的action
                     setTimeout(function () {
                         window.location.href=bee_data.action;
-                    }, 500); //停留300毫秒
+                    }, 3000); //停留300毫秒
                 }
             } else{
                 layer.msg("注册失败: "+bee_data.msg, { icon: 5});  //json的msg

@@ -56,7 +56,7 @@ func (this *IndexController) HomePageination() {
 
 		dates = append(
 			dates,
-			beego.Date(notes[i].CreatedAt, "Y-m-d h:i:s"),
+			beego.Date(notes[i].CreatedAt, "Y-m-d H:i:s"),
 		)
 
 	}
@@ -92,6 +92,18 @@ func (this *IndexController) Login() {
 // @router /reg [get]
 func (this *IndexController) Regislation() {
 	this.TplName = "reg.html"
+}
+
+// @router /activation/:md5 [get]
+func (this *IndexController) Activation() {
+
+	md5 := this.Ctx.Input.Param(":md5")
+	if err := models.QueryAndActivate(md5); err != nil {
+		this.Abort500(my_errors.New("激活账号时发生系统错误", err))
+	} else {
+		this.Data["content"] = "您的账号已激活, 请重新登陆"
+		this.TplName = "error/500.html"
+	}
 }
 
 // @router /note/:key [get]

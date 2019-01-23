@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/astaxie/beego"
 	"github.com/jiangtaohe/blog-web/models"
 	"github.com/jiangtaohe/blog-web/my_errors"
 )
@@ -34,6 +35,10 @@ type CommentController struct {
 func (this *CommentController) SaveComment() {
 	if !this.IsLogin { //未登录
 		this.Abort500(my_errors.NotLoginError{})
+	}
+
+	if this.User.Role == 10 { //未激活
+		this.Abort500(my_errors.UnactivatedError{})
 	}
 
 	key := this.Ctx.Input.Param(":key")
@@ -115,6 +120,16 @@ func (this *CommentController) CommentPageination() {
 		this.Abort500(my_errors.New("系统错误", err))
 	}
 
+	var dates []string
+	for i := 0; i < len(comments); i++ {
+
+		dates = append(
+			dates,
+			beego.Date(comments[i].CreatedAt, "m-d H:i"),
+		)
+
+	}
+
 	user := this.User
 
 	this.ReturnJson(
@@ -123,6 +138,7 @@ func (this *CommentController) CommentPageination() {
 			"comments": comments,
 			"user":     user,
 			"is_login": this.IsLogin,
+			"dates":    dates,
 		},
 	)
 }

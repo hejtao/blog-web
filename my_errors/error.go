@@ -45,7 +45,7 @@ func (err Error404) ErrorCode() int {
 	return 404
 }
 
-//实现了Error 的错误1001
+//实现了Error 的错误202
 type NotLoginError struct {
 	MyError
 }
@@ -56,4 +56,17 @@ func (err NotLoginError) Error() string { //重写方法
 
 func (err NotLoginError) ErrorCode() int {
 	return 202
+}
+
+//实现了Error 的错误303
+type UnactivatedError struct {
+	MyError
+}
+
+func (err UnactivatedError) Error() string { //重写方法
+	return "您的帐户尚未激活"
+}
+
+func (err UnactivatedError) ErrorCode() int {
+	return 303
 }
