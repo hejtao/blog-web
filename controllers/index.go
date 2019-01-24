@@ -73,7 +73,7 @@ func (this *IndexController) HomePageination() {
 //留言
 // @router /message [get]
 func (this *IndexController) GetMessage() {
-	this.TplName = "message.html" // [get] 请求的返回
+	this.TplName = "message3.html" // [get] 请求的返回
 }
 
 //关于
@@ -100,10 +100,10 @@ func (this *IndexController) Activation() {
 	md5 := this.Ctx.Input.Param(":md5")
 	if err := models.QueryAndActivate(md5); err != nil {
 		this.Abort500(my_errors.New("激活账号时发生系统错误", err))
-	} else {
-		this.Data["content"] = "您的账号已激活, 请重新登陆"
-		this.TplName = "error/500.html"
 	}
+
+	this.Data["content"] = "您的账号已激活, 请重新登陆"
+	this.TplName = "error/500.html"
 }
 
 // @router /note/:key [get]

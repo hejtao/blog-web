@@ -51,7 +51,16 @@ func QueryWithEmailAndPwd(email, pwd string) (user User, err error) {
 }
 
 func QueryAndActivate(act_code string) error {
-	return db.Model(&User{}).Where("Act_Code = ?", act_code).Update("Role", 1).Error
+	var user User
+	if err := db.Where("Act_Code = ?", act_code).Take(&user).Error; err != nil {
+		return err
+	}
+
+	if err := db.Model(&User{}).Where("Act_Code = ?", act_code).Update("Role", 1).Error; err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func HasNameExisted(name string) bool {

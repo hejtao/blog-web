@@ -86,42 +86,6 @@
     </div>
 </div>
 {{ template "comm/footer.html" .}}
-<script src="/static/lib/wangEditor.js"></script>
-<script>
-    //Demo
-    layui.use(['form','jquery'], function () {
-        var form = layui.form, $ = layui.jquery;
-        //监听提交
-
-        var E = window.wangEditor;
-        var editor = new E('#edit');  //对应<div id="editor" ...>
-        // 或者 var editor = new E( document.getElementById('editor') )
-        editor.customConfig.zIndex = 1
-        editor.customConfig.pasteFilterStyle = false;
-        editor.customConfig.uploadImgShowBase64 = true
-        editor.create();
-        
-
-        form.on('submit(save)', function(form_data){
-            //layer.msg(JSON.stringify(data.field));
-            form_data.field.content = editor.txt.html();  //取编辑器的内容 
-            $.post("/note_config/save/{{.note.Key}}", form_data.field, function(bee_data){  //this.Data["..."]
-                if (bee_data.code==7777) {                      //json的code
-                    layer.msg("文章保存成功", { icon: 1})
-                    if (bee_data.action) {                  //json的action
-                        setTimeout(function () {
-                            window.location.href=bee_data.action;
-                        }, 300); //停留300毫秒
-                    }
-                } else{
-                    layer.msg("文章保存失败: "+bee_data.msg, { icon: 5});  //json的msg
-                }
-            },"json").error(function(){
-                layer.msg("网络异常", { icon: 2})
-            });
-            return false;
-      });
-    });
-</script>
+{{ template "wangEditor/editor_script.html" .}}
 </body>
 </html>

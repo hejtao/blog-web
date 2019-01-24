@@ -578,7 +578,11 @@ var config = {
         }, {
             alt: '[污]',
             src: 'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3c/pcmoren_wu_org.png'
-        }]
+        }
+
+       
+
+        ]
     }, {
         // tab 的标题
         title: '新浪',

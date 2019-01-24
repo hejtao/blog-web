@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="/static/emoji_pick/lib/css/emoji.css" rel="stylesheet">
+
+{{template "comm/link.html"}}
+</head>
+<body class="lay-blog">
+{{template "comm/header.html".}}
+<div class="container-wrap">
+
+    <div class="container container-message">
+        <div class="contar-wrap" id="contar-wrap">
+	         <div class="item-msg">
+	         	
+	         	{{if .isLogin}}
+	            <form class="layui-form" action="">
+	                <div class="layui-form-item  lead emoji-picker-container">
+	                    <!-- <div class="layui-textarea" id="LAY-msg-content" placeholder="留个言啊~" contenteditable="true" data-emojiable="true"></div> -->
+	                    <textarea class="layui-textarea layui-form-text" id="LAY-msg-content" placeholder="留个言啊~" data-emojiable="true"></textarea>
+	                </div>
+	            </form>
+	            <div class="item-btn pull-left">
+		                <button class="layui-btn layui-btn-normal" id="item-btn">提交</button>
+		        </div>
+
+		       
+		        <br>
+		        <br>
+
+	            {{end}}
+
+	       
+	            <div id="LAY-msg-box">
+
+	            </div>
+	            <div id="test1" class="paging"></div>
+	         </div>
+        </div>
+    </div>
+</div>
+{{template "comm/footer.html"}}
+	
+	{{str2html `<script id="LAY-msg-tpl-a" type="text/html">
+				    
+				        <div class="info-item">
+				            <img class="info-img" style="max-height: 90px" src="{{ d.avatar }}" alt="">
+				            <div class="info-text">
+				                <p class="title count">
+				                    <span class="name">{{ d.name }}</span>
+				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+				                    <span class="value">{{ d.likes }}</span>
+									 	</span>
+				                </p>
+
+				                <p class="info-intr">
+				                {{ d.content }}
+				                </p>
+
+				                <br>
+								<p>
+									<span style="color:#a5a5a5" >{{ d.date }}</span>
+				</script>`}}
+
+	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
+		                		
+									<span class="info-img like" data-key="{{ d.key }}" data-type="delete-msg" style="float: right; padding-right: 13px; color:#a5a5a5">删除</span> 
+								</p>	
+		                
+				</script>`}}
+
+
+	{{str2html `<script id="LAY-msg-tpl-c" type="text/html">
+
+									<hr style="width:100px; margin-left:580px">
+									
+
+				            </div>
+				        </div>
+				    
+				</script>`}}
+
+
+
+			<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+			<script src="/static/emoji_pick/lib/js/jquery-1.11.3.min.js"></script>
+			<script src="/static/emoji_pick/lib/js/config.js"></script>
+			<script src="/static/emoji_pick/lib/js/util.js"></script>
+			<script src="/static/emoji_pick/lib/js/jquery.emojiarea.js"></script>
+			<script src="/static/emoji_pick/lib/js/emoji-picker.js"></script>
+
+			<script>
+		      $(function() {
+		        // Initializes and creates emoji set from sprite sheet
+		        window.emojiPicker = new EmojiPicker({
+		          emojiable_selector: '[data-emojiable=true]',
+		          assetsPath: '/static/emoji_pick/lib/img/',
+		          popupButtonClasses: 'fa fa-smile-o'
+		        });
+		        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+		        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+		        // It can be called as many times as necessary; previously converted input fields will not be converted again
+		        window.emojiPicker.discover();
+		      });
+		    </script>
+</body>
+</html>
