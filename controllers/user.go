@@ -123,7 +123,7 @@ func (this *UserController) sendEmail(name, email, md5 string) error {
 								                                <h4>亲爱的%s，您好：</h4>
 								                                <p>您于 %s 在 Meetoo 完成了注册，请您点击下面的链接激活账户，</p>
 								                                
-								                                <p><a href="http://localhost/activation/%s">http://localhost/activation/%s</a></p>
+								                                <p><a href="http://jiangtao.fun/activation/%s">http://jiangtao.fun/activation/%s</a></p>
 
 								                                <p>如果您没有在 Meetoo 注册，请忽略该邮件。</p>
 

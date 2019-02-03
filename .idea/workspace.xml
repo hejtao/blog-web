@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fa197a03-dc03-4f33-8a9f-cf1c2e642905" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/message4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog-web.exe" beforeDir="false" afterPath="$PROJECT_DIR$/blog-web.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/index.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/session/1/8/189e8f77e49df956da431ac24fe2374d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/session/4/8/48190d0a3b082587acee77171a0521e3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/session/6/1/61ff719aa72497b01f51db522c4c5818" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/session/a/a/aac622fefa8f0ed610d2f3eba55fb9ff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/session/b/b/bb5c90cd1a533c339dc55840f7b5cfd0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lastupdate.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/lastupdate.tmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/commentsRouter_controllers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/mian.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mian.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/css/emoji.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/css/emoji.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetSmiles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetSmiles_1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetW_1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/blank.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/emoji-picker.coffee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/emoji-picker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/emoji-picker.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/jquery-1.11.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/jquery.emojiarea.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/emoji_pick/lib/js/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/blog.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/blog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/layui/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/fonts/w-e-icon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/wangEditor.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/wangEditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/wangEditor.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/wangEditor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/lib/wangEditor.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comm/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/comm/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comm/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/comm/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comm/note_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/comm/note_content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home2.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/home2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/message3.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/message3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/new_note.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/new_note.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/note.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/note.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/note2.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/note2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/wangEditor/editor_script.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/wangEditor/face.html" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="data" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/mian.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="201" column="30" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/home2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/signin.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/layui/css/layui.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="753">
+              <caret line="46" column="12029" selection-start-line="46" selection-start-column="12029" selection-end-line="46" selection-end-column="12029" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/note2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1715">
+              <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/index.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-703">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/note.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/message3.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-627">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/comment.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1205">
+              <caret line="141" column="9" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/message2.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>)</find>
+      <find>img</find>
+      <find>htmlFilter</find>
+      <find>this.emojiPopup.a</find>
+      <find>save</find>
+      <find>height</find>
+      <find>angel.s</find>
+      <find>clip</find>
+      <find>header</find>
+      <find>content</find>
+      <find>title</find>
+      <find>item-btn</find>
+      <find>msg-</find>
+      <find>elemCont</find>
+      <find>editor</find>
+      <find>editor2</find>
+      <find>laytp</find>
+      <find>DrawComment</find>
+      <find>delete</find>
+      <find>in</find>
+      <find>inf</find>
+      <find>info</find>
+      <find>info-text</find>
+      <find>cmt</find>
+      <find>msg</find>
+      <find>limit</find>
+      <find>comment</find>
+    </findStrings>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/views/about.html" />
+        <option value="$PROJECT_DIR$/views/comm/header.html" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/views/emoji-area" />
+        <option value="$PROJECT_DIR$/views/emoji-area.html" />
+        <option value="$PROJECT_DIR$/static/emoji_pick/lib/js/jquery.emojiarea.js" />
+        <option value="$PROJECT_DIR$/views/message4.html" />
+        <option value="$PROJECT_DIR$/views/wangEditor/editor_script.html" />
+        <option value="$PROJECT_DIR$/static/lib/wangEditor.css" />
+        <option value="$PROJECT_DIR$/static/ckeditor/build-config.js" />
+        <option value="$PROJECT_DIR$/static/ckeditor/config.js" />
+        <option value="$PROJECT_DIR$/views/new_note.html" />
+        <option value="$PROJECT_DIR$/static/js/blog.js" />
+        <option value="$PROJECT_DIR$/views/comm/note_content.html" />
+        <option value="$PROJECT_DIR$/views/note.html" />
+        <option value="$PROJECT_DIR$/views/note2.html" />
+        <option value="$PROJECT_DIR$/static/css/mian.css" />
+        <option value="$PROJECT_DIR$/views/home2.html" />
+        <option value="$PROJECT_DIR$/views/message3.html" />
+        <option value="$PROJECT_DIR$/controllers/comment.go" />
+        <option value="$PROJECT_DIR$/controllers/index.go" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="322" />
+    <option name="y" value="50" />
+    <option name="width" value="1313" />
+    <option name="height" value="773" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="blog-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-web" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-web" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blog-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog-web" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10074627" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" type="SLIDING" weight="0.3290993" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" type="SLIDING" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32952183" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.015991472" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/img/emoji_spritesheet_4.png" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetSmiles.png" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetSmiles_1x.png" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetW.png" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/img/IconsetW_1x.png" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/js/jquery-1.11.3.min.js" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/js/emoji-picker.coffee" />
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/js/emoji-picker.js" />
+    <entry file="file://$PROJECT_DIR$/views/emoji-area" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4b6b241f-d159-49fd-bd0b-bb98cd12c6fd/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/emoji_pick/lib/js/jquery.emojiarea.js" />
+    <entry file="file://$PROJECT_DIR$/static/emojione_area/demo/index.html" />
+    <entry file="file://$PROJECT_DIR$/static/emojione_area/images/placeholder.png" />
+    <entry file="file://$PROJECT_DIR$/static/emojione_area/images/sprite.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/tongue_smile.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/regular_smile.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/omg_smile.gif" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/lightbulb.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/envelope.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/heart.gif" />
+    <entry file="file://$PROJECT_DIR$/static/lib/wangEditor.css" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/contents.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/lib/wangEditor.js" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/reg2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1159" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/comm/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="43" selection-start-line="9" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/build-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="187" column="14" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/ckeditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/wink_smile.png" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/images/wink_smile.gif" />
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/plugins/smiley/dialogs/smiley.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="4" column="68" selection-start-line="4" selection-start-column="68" selection-end-line="4" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/ckeditor/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="53" selection-start-line="12" selection-start-column="8" selection-end-line="15" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/wangEditor/editor_script.html" />
+    <entry file="file://$PROJECT_DIR$/views/message4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/note.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/new_comment.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/new_note.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="64" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/comm/note_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/blog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2926">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/layui/lay/modules/laytpl.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/message2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/layui/css/layui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="46" column="12029" selection-start-line="46" selection-start-column="12029" selection-end-line="46" selection-end-column="12029" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/note2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1715">
+          <caret line="177" column="8" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/signin.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/mian.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="201" column="30" selection-start-line="201" selection-start-column="27" selection-end-line="201" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/note.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/comment.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1205">
+          <caret line="141" column="9" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/message3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/index.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-703">
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

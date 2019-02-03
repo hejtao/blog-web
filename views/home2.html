@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评论-闲言轻博客</title>
+	<link rel="shortcut icon" href="/static/images/icon.png" >
+	<title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {{template "comm/link.html"}}
 </head>
@@ -11,37 +12,46 @@
 	
 	<div class="container-wrap">
 		<div class="container container-message">
-				<!-- <div class="contar-wrap">
+				<div class="contar-wrap">
 					<h4 class="item-title">
-						<p><i class="layui-icon layui-icon-speaker"></i>公告：<span>欢迎来到我的轻博客</span></p>
+						<p><i class="layui-icon layui-icon-speaker" style="color: #FF0000;"></i>公告：<span>欢迎来到 Meetoo (>∩_∩<) </span></p>
 					</h4>
 
 					{{ range .notes }}
 					<div class="item">
-						
-						
+						<div class="item-box  layer-photos-demo1 layer-photos-demo">
+							<h3><a href="/note/{{ .Key }}"> {{ .Title }} </a></h3>
+							<h5> <span> {{date .CreatedAt "Y-m-d h:i:s"}} </span>&nbsp&nbsp<span> {{.Author.Name}} </span></h5>
+							
+							<p> {{.Summary}} </p>
+						</div>	
 					</div>
 					{{end}}
-					
-					<div id="LAY-msg-box">
-            		</div>
+            		
+				</div>
 
-            		<div id="test2" class="paging"></div>
-				</div> -->
-				<!-- {{if gt .page 1}}
-				<div class="item-btn">
-					<button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page -1}}&search={{.search}}'">
+				
+				<div class="paging">
+				{{if gt .page 1}}
+					<!-- <button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page -1}}&search={{.search}}'">
 					上一页
-					</button>
-				</div>
+					</button> -->
+				
+					<a href="/?page={{add .page -1}}&search={{.search}}" title="上一页" style="padding-right:20px;color:#a5a5a5" class="layui-icon layui-icon-prev"></a>
 				{{end}}
+
+				<span style="color:#a5a5a5" >{{.page}} / {{.page_count}}</span>
+
 				{{if lt .page .page_count}}
-				<div class="item-btn">
-					<button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page 1}}&search={{.search}}'">
+				
+					<!-- <button class="layui-btn layui-btn-normal" onclick="window.location.href='/?page={{add .page 1}}&search={{.search}}'">
 					下一页
-					</button>
+					</button> -->
+
+					<a href="/?page={{add .page 1}}&search={{.search}}" title="下一页" style="padding-left:20px;color:#a5a5a5" class="layui-icon layui-icon-next"></a>
+				{{end}}
 				</div>
-				{{end}} -->
+				
 
 
 		</div>

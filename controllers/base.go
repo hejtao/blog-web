@@ -22,7 +22,7 @@ type BaseController struct {
 }
 
 func (this *BaseController) Prepare() { //默认在其它 Controllers 之前执行
-	this.Data["path"] = this.Ctx.Request.RequestURI // 将请求路径保存到 Path 变量里面
+	this.Data["path"] = string(this.Ctx.Request.RequestURI) // 将请求路径保存到 Path 变量里面
 
 	this.IsLogin = false
 	if u, ok := this.GetSession(SESSION_USER_KEY).(models.User); ok {

@@ -2,148 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评论-闲言轻博客</title>
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 {{template "comm/link.html"}}
 </head>
 <body class="lay-blog">
-	{{template "comm/header.html" .}}
+    {{template "comm/header.html" .}}
 
-	<div class="container-wrap">
-		<div class="container container-message container-details">
-				<div class="contar-wrap">
-					<div class="item">
-						<div class="item-box  layer-photos-demo1 layer-photos-demo">
-							{{template "comm/note_content.html" .note}}
-							<div class="count layui-clear">
-								<span class="pull-left">阅读 <em class="value"> {{add .note.Visits 1}} </em></span>
-								<span class="pull-right like" data-key="{{.note.Key}}" data-type="note"><i class="layui-icon layui-icon-praise"></i>
-								<em class="value">{{.note.Likes}}</em>
-								</span>
-							</div>
-						</div>
-					</div>	
-					
-					<div class="comt layui-clear">
-						{{if .isLogin}}   <a href="/comment_config/new/{{.note.Key}}" class="pull-right">写评论</a>
+    <div class="container-wrap">
+        <div class="container container-message container-details">
+            <div class="contar-wrap">
+                <div class="item">
+                    <div class="item-box">
+                        {{template "comm/note_content.html" .note}}
+                        <div class="count layui-clear">
+                            <span class="pull-left">阅读 <em class="value"> {{add .note.Visits 1}} </em></span>
+                            <span class="pull-right like" data-key="{{.note.Key}}" data-type="note"><i class="layui-icon layui-icon-praise"></i>
+                            <em class="value">{{.note.Likes}}</em>
+                            </span>
+                        </div>
+                    </div>
+                </div>  
+                
 
-						<form class="layui-form" action="">
-							<input type="hidden" name="key" value="{{.note.Key}}">
-							<div class="layui-form-item layui-form-text">
-								<textarea  class="layui-textarea" name="content" style="resize:none" lay-verify="required" placeholder="写点什么啊"></textarea>
-							</div>
-							<div class="btnbox">
-								<button lay-submit class="layui-btn" lay-filter="comment">
-									确定
-								</button>
-							</div>
-						</form>
-						{{end}}
-						
-					</div>
-					
-					<div id="LAY-msg-box">
-						{{range .comments}}
-						<div class="info-item">
-							<img class="info-img" src="{{.Author.Avatar}}" alt="">
-							<div class="info-text">
-								<p class="title count">
-									<span class="name"> {{.Author.Name}} </span>
-									<span class="info-img like" data-key="{{.CommentKey}}" data-type="comment"><i class="layui-icon layui-icon-praise"></i>  
-									<span class="value"> {{.Likes}}  </span> 
-									</span>
-								</p>
-								<p class="info-intr"> {{.Content}} </p>
-							</div>
-						</div>	
-						{{end}}	
-					</div>
-				</div>
-		</div>
-	</div>
+                <div class="comt layui-clear">
 
-	{{template "comm/footer.html" .}}
+                    <input type="hidden" id="noteKey" value="{{.note.Key}}">
+                    {{if .isLogin}}
+
+                    <br>
+                    <form class="layui-form" action="">
+                            <div class="layui-form-item">
+                                <input type="hidden"  id="LAY-msg-content">
+                                </input>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-textarea-cmt" id="editor" contenteditable="true"> 
+                                </div> 
+                            </div>
+                    </form>
+                    <div class="item-btn pull-left" id="item-btn">
+                        <button class="layui-btn layui-btn-normal" id="item-btn-cmt">提交</button>
+                    </div>
+                    {{end}}
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                     <div id="LAY-msg-box" >
+
+                    </div>
+                    <div id="test3" class="paging"></div>
+                   
+                </div>
+               
+                
+
+            </div>
+        </div>
+    </div>
+
+    {{template "comm/footer.html" .}}
 
 
-	<script> //评论确认按钮的js
-    layui.use(['form','jquery','layer'], function () {
-     	var form = layui.form, $ = layui.jquery, layer = layui.layer;
-     	form.on('submit(comment)', function(form_data){
-     		$.post("/comment_config/save/"+form_data.field.key, {content: form_data.field.content}, function(bee_data){  //ajax 请求
-     			if (bee_data.code==4444) {                      //json的code
-                    layer.msg("评论成功", { icon: 1})
+    {{str2html `<script id="LAY-msg-tpl-a" type="text/html">
 
-                    // if (bee_data.action) {                  //json的action
-                    //     setTimeout(function () {
-                    //         window.location.href=bee_data.action;
-                    //     }, 300); //停留300毫秒
-                    // }             
-                } else{
-                    layer.msg("评论失败: "+bee_data.msg, { icon: 5});  //json的msg
-                } 
-     		}, "json").error(function(){
-     			layer.msg("网络异常", { icon: 2})
-     		});
+                                        <div class="info-item-cmt">
+                                            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
 
-     		return false
-     	})   
-    });
+                                            <div class="info-text-cmt">
+                                                <p class="title count">
+                                                    <span class="name">{{ d.name }}</span>
+                                                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+                                                    <span class="value">{{ d.likes }}</span>
+                                                                                </span>
+                                                </p>
+
+                                                <p class="info-intr">
+                                                {{ d.content }}
+                                                </p>
+
+                                                <br>
+                                                <p>
+                                                    <span style="color:#a5a5a5" >{{ d.date }}</span>
+                                </script>`}}
+
+    {{str2html `<script id="LAY-msg-tpl-b" type="text/html">
+
+                                                    <span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
+                                                    <hr style="width:70px; margin-left:600px">
+                                                </p>
+                                </script>`}}
+
+
+    {{str2html `<script id="LAY-msg-tpl-c" type="text/html">
+
+                                            </div>
+                                        </div>
+
+                                </script>`}}
+
+
+
+    <script src="/static/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.inline( 'editor', {
+            language: 'zh-cn',
+            uiColor: '#ffffff',
+            toolbar: [
+                        {
+                            "name": "insert",
+                            "items": ["Smiley"]
+                        }
+                    ],
+            smiley_columns : 10,
+            smiley_images : [
+                'regular_smile.png','sad_smile.png','wink_smile.png','teeth_smile.png','confused_smile.png','tongue_smile.png',
+                        'embarrassed_smile.png','omg_smile.png','whatchutalkingabout_smile.png','angry_smile.png','angel_smile.png','shades_smile.png',
+                        'devil_smile.png','cry_smile.png','lightbulb.png','thumbs_down.png','thumbs_up.png','heart.png',
+                        'broken_heart.png','kiss.png','envelope.png',
+                        '0.gif','1.gif','2.gif','3.gif','4.gif','5.gif','6.gif','7.gif','9.gif','10.gif',
+                        '11.gif','12.gif','13.gif','14.gif','15.gif','16.gif','17.gif','18.gif','19.gif','20.gif',
+                        '21.gif','22.gif','23.gif','24.gif','25.gif','26.gif','27.gif','28.gif','29.gif','30.gif',
+                        '31.gif','32.gif','33.gif','34.gif','35.gif','36.gif','37.gif','38.gif','39.gif','40.gif',
+                        '41.gif','42.gif','43.gif','44.gif','45.gif','46.gif','47.gif','48.gif','49.gif','50.gif',
+                        '51.gif','52.gif','53.gif','54.gif','55.gif','56.gif','57.gif','58.gif','59.gif','60.gif',
+                        '61.gif','62.gif','63.gif','64.gif','65.gif','66.gif','67.gif','68.gif','69.gif','70.gif',
+                        '71.gif'
+            ],
+        });
+
+
+
+        layui.use(['jquery','layer'], function () {
+            var $ = layui.jquery;
+
+            $('#item-btn-cmt').on('click', function(){
+                $('#LAY-msg-content').val(CKEDITOR.instances.editor.getData());
+                CKEDITOR.instances.editor.setData("");  //清空文本框
+            });
+        });
     </script>
 
-	{{if fix_bar .user.ID .note.AuthorID .isLogin}}
-	<script> // 固定按钮的js
-		//var user_id = {{.user.ID}}
-		//var author_id = {{.note.AuthorID}}
-		var key = {{.note.Key}}
-		//var isLogin = {{.isLogin}}
 
-		layui.use(['util','jquery'], function(){
-  			var util = layui.util, $ = layui.jquery
+
+
+    {{if fix_bar .user.ID .note.AuthorID .user.Role .isLogin}}
+    <script> // 固定按钮的js
+        //var user_id = {{.user.ID}}
+        //var author_id = {{.note.AuthorID}}
+        var key = {{.note.Key}}
+        //var isLogin = {{.isLogin}}
+
+        layui.use(['util','jquery'], function(){
+            var util = layui.util, $ = layui.jquery
   
-  			//执行
-			util.fixbar({
-			bar1: '&#xe642',
-			bar2: '&#xe640',
-			click: function(type){
-      			console.log(type);
-      			if(type === 'bar1'){
-        		//alert('点击了bar1')
-        		window.location.href="/note_config/edit/"+key
-      			}
+            //执行
+            util.fixbar({
+            bar1: '&#xe642',
+            bar2: '&#xe640',
+            click: function(type){
+                console.log(type);
+                if(type === 'bar1'){
+                //alert('点击了bar1')
+                window.location.href="/note_config/edit/"+key
+                }
 
-      			if(type === 'bar2'){
-        		//alert('点击了bar1')
-	        		$.post("/note_config/delete/"+key, function(data){
-	        			if (data.code == 6666) {                      //json的code
-        					layer.msg("文章已删除", { icon: 1})
-			                if (data.action) {                  //json的action
-			                    setTimeout(function () {
-			                        window.location.href=data.action;
-			                    }, 500); //停留300毫秒
-        					}
-			            } else{
-			                layer.msg("文章删除失败: "+data.msg, { icon: 5});  //json的msg
-			            }
-	        		},"json").error(function(){
-    					layer.msg("网络异常", { icon: 2})
-					});
-      			}
-				}
-			});
-  			
-		});
-	</script>
+                if(type === 'bar2'){
+                //alert('点击了bar1')
+                    $.post("/note_config/delete/"+key, function(data){
+                        if (data.code == 6666) {                      //json的code
+                            layer.msg("文章已删除", { icon: 1})
+                            if (data.action) {                  //json的action
+                                setTimeout(function () {
+                                    window.location.href=data.action;
+                                }, 500); //停留300毫秒
+                            }
+                        } else{
+                            layer.msg("文章删除失败: "+data.msg, { icon: 5});  //json的msg
+                        }
+                    },"json").error(function(){
+                        layer.msg("网络异常", { icon: 2})
+                    });
+                }
+                }
+            });
+            
+        });
+    </script>
 
-	{{else}}
-	<script>
-		layui.use('util', function(){
-  			var util = layui.util;
-			//执行
-			util.fixbar({ 
-			});
-		});
-	</script>
-	{{end}}
+    {{else}}
+    <script>
+        layui.use('util', function(){
+            var util = layui.util;
+            //执行
+            util.fixbar({ 
+            });
+        });
+    </script>
+    {{end}}
 
 </body>
 </html>

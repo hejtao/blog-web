@@ -6,8 +6,6 @@
     <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-  	<link href="/static/emoji_pick/lib/css/emoji.css" rel="stylesheet">
 {{template "comm/link.html"}}
 </head>
 <body class="lay-blog">
@@ -36,8 +34,10 @@
 
 					<br>
 					<form class="layui-form" action="">
-			                <div class="layui-form-item lead emoji-picker-container">
-			                    <textarea class="xiaohe layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none;" data-emojiable="true"></textarea>
+			                <div class="layui-form-item">
+			                    <textarea class="layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none;">
+
+			                    </textarea>
 			                </div>
 
 							<!-- <div class="layui-form-item">
@@ -65,70 +65,44 @@
 	{{template "comm/footer.html" .}}
 
 
-	<!-- {{str2html `<script id="LAY-msg-tpl" type="text/html">
-				   
-				   
-				        <div class="info-item">
-				            <img class="info-img" style="max-height: 35px" src="{{ d.avatar }}" alt="">
-				            <div class="info-text">
-				                <p class="title count">
-				                    <span class="name">{{ d.name }}</span>
-
-				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
-				                    	<span class="value">{{ d.likes }}</span>
-									</span>
-				                </p>
-
-				                <p class="info-intr">
-				                {{ d.content }}
-				                </p>
-
-				                <p>	
-									<a href="" class="name pull-right" style="padding-right:30px">删除</a>
-				                </p>
-
-				            </div>
-				        </div>
-				   
-				    
-				</script>`}} -->
-
-
 	{{str2html `<script id="LAY-msg-tpl-a" type="text/html">
-				    
-				        <div class="info-item-cmt">
-				            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
-				            <div class="info-text-cmt">
-				                <p class="title count">
-				                    <span class="name">{{ d.name }}</span>
-				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
-				                    <span class="value">{{ d.likes }}</span>
-									 	</span>
-				                </p>
 
-				                <p class="info-intr">
-				                {{ d.content }}
-				                </p>
+                                        <div class="info-item-cmt">
+                                            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
 
-				                <br>
-								<p class="delete-cmt">
-									<span style="color:#a5a5a5" >{{ d.date }}</span>
-				</script>`}}
+                                            <div class="info-text-cmt">
+                                                <p class="title count">
+                                                    <span class="name">{{ d.name }}</span>
+                                                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+                                                    <span class="value">{{ d.likes }}</span>
+                                                                                </span>
+                                                </p>
+
+                                                <p class="info-intr">
+                                                {{ d.content }}
+                                                </p>
+
+                                                <br>
+												<p>
+													<span style="color:#a5a5a5" >{{ d.date }}</span>
+                                </script>`}}
 
 	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
-				                
-									<span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
-									<hr style="width:70px; margin-left:600px">
-								</p>
-				</script>`}}
+
+													<span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
+													<hr style="width:70px; margin-left:600px">
+												</p>
+                                </script>`}}
 
 
 	{{str2html `<script id="LAY-msg-tpl-c" type="text/html">
 
-				            </div>
-				        </div>
-				    
-				</script>`}}
+                                            </div>
+                                        </div>
+
+                                </script>`}}
+
+
 
 
 	{{if fix_bar .user.ID .note.AuthorID .user.Role .isLogin}}
@@ -186,25 +160,5 @@
 	</script>
 	{{end}}
 
-	<script src="/static/emoji_pick/lib/js/jquery-1.11.3.min.js"></script>
-			<script src="/static/emoji_pick/lib/js/config.js"></script>
-			<script src="/static/emoji_pick/lib/js/util.js"></script>
-			<script src="/static/emoji_pick/lib/js/jquery.emojiarea.js"></script>
-			<script src="/static/emoji_pick/lib/js/emoji-picker.js"></script>
-
-			<script>
-		      $(function() {
-		        // Initializes and creates emoji set from sprite sheet
-		        window.emojiPicker = new EmojiPicker({
-		          emojiable_selector: '[data-emojiable=true]',
-		          assetsPath: '/static/emoji_pick/lib/img/',
-		          popupButtonClasses: 'fa fa-smile-o'
-		        });
-		        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-		        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-		        // It can be called as many times as necessary; previously converted input fields will not be converted again
-		        window.emojiPicker.discover();
-		      });
-		    </script>
 </body>
 </html>

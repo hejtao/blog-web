@@ -15,12 +15,12 @@
         </form>
         <div class="blog-nav pull-right">
             <ul class="layui-nav">
-                <li class="layui-nav-item {{if compare "/" .path }} layui-this {{end}}"><a href="/">主页</a></li>
-                <li class="layui-nav-item {{if compare "/message" .path }} layui-this {{end}}"><a href="/message">留言</a></li>
-                <li class="layui-nav-item {{if compare "/about" .path }} layui-this {{end}}"><a href="/about">关于</a></li>
+                <li class="layui-nav-item {{if home .path }} layui-this {{end}}"><a href="/">主页</a></li>
+                <li class="layui-nav-item {{if include "/message" .path }} layui-this {{end}}"><a href="/message">留言</a></li>
+                <li class="layui-nav-item {{if include "/about" .path }} layui-this {{end}}"><a href="https://hejtao.com">友情</a></li>
                
                 {{if .isLogin}}
-                <li class="layui-nav-item {{if compare "/note_config/new" .path }} layui-this {{end}}"><a href="/note_config/new">写作</a></li>
+                <li class="layui-nav-item {{if include "/note_config/new" .path }} layui-this {{end}}"><a href="/note_config/new">写作</a></li>
                 {{end}}
                 
                 <li class="layui-nav-item">

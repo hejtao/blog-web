@@ -5,109 +5,154 @@
     <link rel="shortcut icon" href="/static/images/icon.png" >
     <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-  	<link href="/static/emoji_pick/lib/css/emoji.css" rel="stylesheet">
-
 {{template "comm/link.html"}}
 </head>
 <body class="lay-blog">
-{{template "comm/header.html".}}
-<div class="container-wrap">
+	{{template "comm/header.html".}}
+		<div class="container-wrap">
 
-    <div class="container container-message">
-        <div class="contar-wrap" id="contar-wrap">
-	         <div class="item-msg">
-	         	
-	         	{{if .isLogin}}
-	            <form class="layui-form" action="">
-	                <div class="layui-form-item  lead emoji-picker-container">
-	                    <!-- <div class="layui-textarea" id="LAY-msg-content" placeholder="留个言啊~" contenteditable="true" data-emojiable="true"></div> -->
-	                    <textarea class="layui-textarea layui-form-text" id="LAY-msg-content" placeholder="留个言啊~" data-emojiable="true"></textarea>
-	                </div>
-	            </form>
-	            <div class="item-btn pull-left">
-		                <button class="layui-btn layui-btn-normal" id="item-btn">提交</button>
-		        </div>
+			<div class="container container-message">
+				<div class="contar-wrap">
+					 <div class="item-msg">
+						<div class="item-box">
+							{{if .isLogin}}
+							<form class="layui-form" action="">					
+								<div class="layui-form-item layui-textarea" id="editor2" contenteditable="true"></div>
 
-		       
-		        <br>
-		        <br>
+								<div class="layui-form-item">
+									<button lay-submit class="layui-btn" lay-filter="save-msg">
+										提交
+									</button>
+								</div>
 
-	            {{end}}
+							</form>
 
-	       
-	            <div id="LAY-msg-box">
+							<br>
 
-	            </div>
-	            <div id="test1" class="paging"></div>
-	         </div>
-        </div>
-    </div>
-</div>
-{{template "comm/footer.html"}}
-	
-	{{str2html `<script id="LAY-msg-tpl-a" type="text/html">
-				    
-				        <div class="info-item">
-				            <img class="info-img" style="max-height: 90px" src="{{ d.avatar }}" alt="">
-				            <div class="info-text">
-				                <p class="title count">
-				                    <span class="name">{{ d.name }}</span>
-				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
-				                    <span class="value">{{ d.likes }}</span>
-									 	</span>
-				                </p>
-
-				                <p class="info-intr">
-				                {{ d.content }}
-				                </p>
-
-				                <br>
-								<p>
-									<span style="color:#a5a5a5" >{{ d.date }}</span>
-				</script>`}}
-
-	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
-		                		
-									<span class="info-img like" data-key="{{ d.key }}" data-type="delete-msg" style="float: right; padding-right: 13px; color:#a5a5a5">删除</span> 
-								</p>	
-		                
-				</script>`}}
+							{{end}}
 
 
-	{{str2html `<script id="LAY-msg-tpl-c" type="text/html">
+							{{ range .comments }}
+							<div class="info-item">
+								<img class="info-img" style="max-height: 60px" src="{{ .Author.Avatar }}" alt="">
+								<div class="info-text">
+									<p class="title count">
+										<span class="name">{{ .Author.Name }}</span>
+										<span class="info-img like" data-key="{{ .CommentKey }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+										<span class="value">{{ .Likes }}</span>
+											</span>
+									</p>
 
+									<p class="info-intr">
+									{{str2html .Content }}
+									</p>
+
+									<br>
+									<p>
+										<span style="color:#a5a5a5" >{{ date .CreatedAt "m-d h:i" }}</span>
+
+									{{if $.isLogin}}{{if compare $.user_id .Author.ID }}
+
+										<a href="/comment_config/delete?page={{$.page}}&comment_key={{.CommentKey}}" style="float: right; padding-right: 13px; color:#a5a5a5">删除</a>
+
+									</p>
 									<hr style="width:100px; margin-left:580px">
-									
-
-				            </div>
-				        </div>
-				    
-				</script>`}}
+									{{end}}{{end}}
+								</div>
+							</div>
+							{{end}}
 
 
 
-			<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
-			<script src="/static/emoji_pick/lib/js/jquery-1.11.3.min.js"></script>
-			<script src="/static/emoji_pick/lib/js/config.js"></script>
-			<script src="/static/emoji_pick/lib/js/util.js"></script>
-			<script src="/static/emoji_pick/lib/js/jquery.emojiarea.js"></script>
-			<script src="/static/emoji_pick/lib/js/emoji-picker.js"></script>
+							<div class="paging">
+								{{if gt .page 1}}
+								<a href="/message?page={{add .page -1}}" title="上一页" style="padding-right:20px;color:#a5a5a5" class="layui-icon layui-icon-prev"></a>
+								{{end}}
 
+								<span style="color:#a5a5a5" >{{.page}} / {{.page_count}}</span>
+
+								{{if lt .page .page_count}}
+								<a href="/message?page={{add .page 1}}" title="下一页" style="padding-left:20px;color:#a5a5a5" class="layui-icon layui-icon-next"></a>
+								{{end}}
+							</div>
+						</div>
+					 </div>
+
+
+				</div>
+			</div>
+		</div>
+
+		{{template "comm/footer.html"}}
+
+			<script src="/static/ckeditor/ckeditor.js"></script>
 			<script>
-		      $(function() {
-		        // Initializes and creates emoji set from sprite sheet
-		        window.emojiPicker = new EmojiPicker({
-		          emojiable_selector: '[data-emojiable=true]',
-		          assetsPath: '/static/emoji_pick/lib/img/',
-		          popupButtonClasses: 'fa fa-smile-o'
-		        });
-		        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
-		        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
-		        // It can be called as many times as necessary; previously converted input fields will not be converted again
-		        window.emojiPicker.discover();
-		      });
-		    </script>
+				CKEDITOR.disableAutoInline = true;
+				CKEDITOR.inline( 'editor2', {
+					language: 'zh-cn',
+					uiColor: '#ffffff',
+					toolbar: [
+						{
+							"name": "insert",
+							"items": ["Smiley"]
+						}
+					],
+					
+					smiley_columns : 10,
+					smiley_images : [
+						'regular_smile.png','sad_smile.png','wink_smile.png','teeth_smile.png','confused_smile.png','tongue_smile.png',
+					    'embarrassed_smile.png','omg_smile.png','whatchutalkingabout_smile.png','angry_smile.png','angel_smile.png','shades_smile.png',
+					    'devil_smile.png','cry_smile.png','lightbulb.png','thumbs_down.png','thumbs_up.png','heart.png',
+					    'broken_heart.png','kiss.png','envelope.png',
+		                '0.gif','1.gif','2.gif','3.gif','4.gif','5.gif','6.gif','7.gif','9.gif','10.gif',
+		                '11.gif','12.gif','13.gif','14.gif','15.gif','16.gif','17.gif','18.gif','19.gif','20.gif',
+		                '21.gif','22.gif','23.gif','24.gif','25.gif','26.gif','27.gif','28.gif','29.gif','30.gif',
+		                '31.gif','32.gif','33.gif','34.gif','35.gif','36.gif','37.gif','38.gif','39.gif','40.gif',
+		                '41.gif','42.gif','43.gif','44.gif','45.gif','46.gif','47.gif','48.gif','49.gif','50.gif',
+		                '51.gif','52.gif','53.gif','54.gif','55.gif','56.gif','57.gif','58.gif','59.gif','60.gif',
+		                '61.gif','62.gif','63.gif','64.gif','65.gif','66.gif','67.gif','68.gif','69.gif','70.gif',
+		                '71.gif'
+		                
+		            ],
+				});
+
+
+				layui.use(['form','jquery','layer'], function () {
+					var form = layui.form, $ = layui.jquery;
+
+					form.on('submit(save-msg)', function(form_data){
+						form_data.field.content = CKEDITOR.instances.editor2.getData();  //取编辑器的内容
+						if(form_data.field.content.replace(/\s/g, '') == ""){
+							layer.msg('请输入留言', { icon: 7});
+							return false;
+						}
+
+
+						$.post("/comment_config/save",form_data.field, function(bee_data){  //ajax 请求
+							if (bee_data.code==3333) {
+
+								layer.msg('留言成功', { icon: 1})
+
+								if (bee_data.action) {
+									setTimeout(function () {
+										window.location.href=bee_data.action;
+									}, 500);
+								}
+
+
+
+							} else{
+								layer.msg("留言失败: "+bee_data.msg, { icon: 5});  //json的msg
+							}
+
+						}, "json").error(function(){
+							layer.msg("网络异常", { icon: 2})
+						});
+
+						return false;
+					});
+				});
+			</script>
+
 </body>
 </html>
