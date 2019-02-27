@@ -2595,7 +2595,7 @@ Video.prototype = {
                 // 标题
                 title: '插入视频',
                 // 模板
-                tpl: '<div>\n                        <input id="' + textValId + '" type="text" class="block" placeholder="\u683C\u5F0F\u5982\uFF1Asrc=\'https://...\'"/>\n                        <div class="w-e-button-container">\n                            <button id="' + btnId + '" class="right">\u63D2\u5165</button>\n                        </div>\n                    </div>',
+                tpl: '<div>\n                        <input id="' + textValId + '" type="text" class="block" placeholder="\u683C\u5F0F\u5982\uFF1Ahttp://... or https://..."/>\n                        <div class="w-e-button-container">\n                            <button id="' + btnId + '" class="right">\u63D2\u5165</button>\n                        </div>\n                    </div>',
                 // 事件绑定
                 events: [{
                     selector: '#' + btnId,
@@ -2630,7 +2630,7 @@ Video.prototype = {
     // 插入视频
     _insert: function _insert(val) {
         var editor = this.editor;
-        editor.cmd.do('insertHTML', '<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe ' + val + 'width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen=></iframe></div></div><p><br></p>');
+        editor.cmd.do('insertHTML','YES' + val + '<p><br></p>');
     }
 };
 

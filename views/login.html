@@ -10,15 +10,7 @@
 
     <link href="/static/css/signin.css" rel="stylesheet">
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        .w-e-toolbar{
-            flex-wrap: wrap;
-            font-size: 14px
-        }
-    </style>
-
-
+    
 </head>
 <body class="lay-blog">
     
@@ -26,19 +18,21 @@
       {{template "comm/header.html"}}
 
     <div class="container-wrap">
-        <div class="container" style="color:#fff">
+        <div class="container">
             
+                <!-- <div class="item-login"> -->
                  
                 
 
 
                     <form class="form-signin layui-form text-center">
+                      <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
                       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                      
                       <input type="email" name="email" class="form-control" placeholder="邮箱" required autofocus lay-verify="required">
                      
                       <input type="password" name="password" class="form-control" placeholder="密码" required autofocus lay-verify="required">
-                      <div class="checkbox mb-3" style="color:#fff">
+                      <div class="checkbox mb-3">
                        
                           <input type="checkbox" name="checkbox">记住本次登陆
                         
@@ -46,10 +40,12 @@
                       <button class="btn btn-lg btn-primary btn-block" lay-submit lay-filter="login">登陆</button> 
                       <button class="btn btn-lg btn-secondary btn-block" onclick="window.location.href='/reg'">注册</button>
                       
+                      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
                     </form>
 
 
                 
+                <!-- </div> -->
                
         </div>
     </div>

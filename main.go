@@ -80,5 +80,5 @@ func initSession() {
 func main() {
 	initSession()
 	initTemplate()
-	beego.Run(":80")
+	beego.Run(":8080")
 }
