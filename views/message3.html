@@ -49,32 +49,31 @@
 
 									<br>
 									<p>
-										<span style="color:#a5a5a5" >{{ date .CreatedAt "m-d h:i" }}</span>
-
-									{{if fix_bar $.user.ID .AuthorID $.user.Role $.isLogin}}
+										<span style="color:#a5a5a5" >{{ date .CreatedAt "m-d H:i" }}</span>
+										
+                                                                                {{if fix_bar $.user.ID .AuthorID $.user.Role $.isLogin}}
 										<a href="/comment_config/delete?page={{$.page}}&comment_key={{.CommentKey}}" style="float: right; padding-right: 13px; color:#a5a5a5">删除</a>
-									{{end}}
+									       {{end}}
 									</p>
 									
 								</div>
 							</div>
-							{{end}}
-
-
-
-							<div class="paging">
-								{{if gt .page 1}}
-								<a href="/message?page={{add .page -1}}" title="上一页" style="padding-right:20px;color:#a5a5a5" class="layui-icon layui-icon-prev"></a>
-								{{end}}
-
-								<span style="color:#a5a5a5" >{{.page}} / {{.page_count}}</span>
-
-								{{if lt .page .page_count}}
-								<a href="/message?page={{add .page 1}}" title="下一页" style="padding-left:20px;color:#a5a5a5" class="layui-icon layui-icon-next"></a>
-								{{end}}
-							</div>
+							{{end}}	
 						</div>
 					 </div>
+
+
+					 <div class="paging">
+						{{if gt .page 1}}
+						<a href="/message?page={{add .page -1}}" title="上一页" style="padding-right:20px;color:#ffffff" class="layui-icon layui-icon-prev"></a>
+						{{end}}
+
+						<span style="color:#ffffff" >{{.page}} / {{.page_count}}</span>
+
+						{{if lt .page .page_count}}
+						<a href="/message?page={{add .page 1}}" title="下一页" style="padding-left:20px;color:#ffffff" class="layui-icon layui-icon-next"></a>
+						{{end}}
+					</div>
 
 
 				</div>
@@ -157,3 +156,5 @@
 
 </body>
 </html>
+
+

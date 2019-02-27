@@ -3,8 +3,9 @@ package controllers
 import (
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/httplib"
+	// "github.com/astaxie/beego/httplib"
 	"github.com/astaxie/beego/utils"
+	"github.com/chanyipiaomiao/hltool"
 	"github.com/jiangtaohe/blog-web/models"
 	"github.com/jiangtaohe/blog-web/my_errors"
 	"math/rand"
@@ -124,7 +125,7 @@ func (this *UserController) sendEmail(name, email, password, md5 string) error {
 								                                <p>您于 %s 在 Meetoo 完成了注册，账号密码为: %s</p>
 								                                <p>请您点击下面的链接激活账户，</p>
 								                                
-								                                <p><a href="http://jiangtao.fun/activation/%s">http://jiangtao.fun/activation/%s</a></p>
+								                                <p><a href="http://jiangtao.fun/activation/%s">http://jiangtao.fun/activation/%s</a></p>							     
 
 								                                <p>如果您没有在 Meetoo 注册，请忽略该邮件。</p>
 
@@ -143,16 +144,20 @@ func (this *UserController) sendEmail(name, email, password, md5 string) error {
 }
 
 func creatMD5(raw_str string) (md5 string, err error) {
-	url := fmt.Sprintf("https://devops-api.com/api/v1/md5?rawstr=%s", raw_str)
-	req := httplib.Get(url)
-	req.Header("DEVOPS-API-TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicHVibGljIiwidXBkYXRlVGltZSI6MTUzNTUzMzQ4NH0.JKxOjbtkmZC9FpPPkmF6u6AzBEYJt6m-yYyYr9wmx18") //设置 API 请求头
+	// api 不能用了 api 不能用了 api 不能用了！！！
+	// url := fmt.Sprintf("https://devops-api.com/api/v1/md5?rawstr=%s", raw_str)
+	// req := httplib.Get(url)
+	// req.Header("DEVOPS-API-TOKEN", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicHVibGljIiwidXBkYXRlVGltZSI6MTUzNTUzMzQ4NH0.JKxOjbtkmZC9FpPPkmF6u6AzBEYJt6m-yYyYr9wmx18") //设置 API 请求头
 
-	res, err := req.String()
-	if err != nil {
-		return
-	}
+	// res, err := req.String()
+	// if err != nil {
+	// 	return
+	// }
 
-	md5 = res[40+len(raw_str) : 72+len(raw_str)]
+	// md5 = res[40+len(raw_str) : 72+len(raw_str)]
+	// return
+
+	md5 = hltool.GetMD5(raw_str)
 	return
 }
 

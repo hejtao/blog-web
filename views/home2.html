@@ -13,7 +13,7 @@
 	<div class="container-wrap">
 		<div class="container container-message">
 				<div class="contar-wrap">
-					<h4 class="item-title">
+					<h4 class="item-title" style="background:rgb(255,255,255,0.95)">
 						<p><i class="layui-icon layui-icon-speaker" style="color: #FF0000;"></i>公告：<span>欢迎来到 Meetoo (>∩_∩<) </span></p>
 					</h4>
 
@@ -21,7 +21,7 @@
 					<div class="item">
 						<div class="item-box  layer-photos-demo1 layer-photos-demo">
 							<h3><a href="/note/{{ .Key }}"> {{ .Title }} </a></h3>
-							<h5> <span> {{date .CreatedAt "Y-m-d h:i:s"}} </span>&nbsp&nbsp<span> {{.Author.Name}} </span></h5>
+							<h5> <span> {{date .CreatedAt "Y-m-d H:i:s"}} </span>&nbsp&nbsp<span> {{.Author.Name}} </span></h5>
 							
 							<p> {{.Summary}} </p>
 						</div>	
@@ -37,10 +37,10 @@
 					上一页
 					</button> -->
 				
-					<a href="/?page={{add .page -1}}&search={{.search}}" title="上一页" style="padding-right:20px;color:#a5a5a5" class="layui-icon layui-icon-prev"></a>
+					<a href="/?page={{add .page -1}}&search={{.search}}" title="上一页" style="padding-right:20px;color:#ffffff" class="layui-icon layui-icon-prev"></a>
 				{{end}}
 
-				<span style="color:#a5a5a5" >{{.page}} / {{.page_count}}</span>
+				<span style="color:#ffffff" >{{.page}} / {{.page_count}}</span>
 
 				{{if lt .page .page_count}}
 				
@@ -48,7 +48,7 @@
 					下一页
 					</button> -->
 
-					<a href="/?page={{add .page 1}}&search={{.search}}" title="下一页" style="padding-left:20px;color:#a5a5a5" class="layui-icon layui-icon-next"></a>
+					<a href="/?page={{add .page 1}}&search={{.search}}" title="下一页" style="padding-left:20px;color:#ffffff" class="layui-icon layui-icon-next"></a>
 				{{end}}
 				</div>
 				

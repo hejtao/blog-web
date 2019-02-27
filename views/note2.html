@@ -52,11 +52,13 @@
                     
                     <br>
                     <br>
-
+                    <div class="cmt-box">
                      <div id="LAY-msg-box" >
 
                     </div>
+                     </div>
                     <div id="test3" class="paging"></div>
+
                    
                 </div>
                
@@ -112,6 +114,7 @@
         CKEDITOR.inline( 'editor', {
             language: 'zh-cn',
             uiColor: '#ffffff',
+	    extraPlugins : 'smiley',
             toolbar: [
                         {
                             "name": "insert",
@@ -119,7 +122,7 @@
                         }
                     ],
             title : "请输入评论",
-            smiley_columns : 10,
+	    smiley_columns : 10,
             smiley_images : [
                 'regular_smile.png','sad_smile.png','wink_smile.png','teeth_smile.png','confused_smile.png','tongue_smile.png',
                         'embarrassed_smile.png','omg_smile.png','whatchutalkingabout_smile.png','angry_smile.png','angel_smile.png','shades_smile.png',
@@ -208,3 +211,5 @@
 
 </body>
 </html>
+
+

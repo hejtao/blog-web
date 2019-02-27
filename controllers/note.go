@@ -29,7 +29,7 @@ func (this *NoteController) NewNote() { //写博客按钮触发
 	note.Key = this.UUID()
 	this.Data["note"] = note
 
-	this.TplName = "new_note2.html"
+	this.TplName = "new_note.html"
 }
 
 ///note_config

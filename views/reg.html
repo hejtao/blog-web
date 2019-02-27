@@ -20,13 +20,11 @@
 
     <div class="container-wrap">
         <div class="container">
-            <div class="contar-wrap">
-                <!-- <div class="item-login"> -->
+            <div class="contar-wrap" style="color:#fff">
 
 
                     <form class="form-signin layui-form text-center">
 
-                        <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
                         <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
 
                             <div class="layui-form-item">
@@ -68,12 +66,10 @@
                                
                             </div>
 
-                             <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
                         </form>
 
 
                 
-                <!-- </div> -->
             </div>      
         </div>
     </div>
@@ -105,7 +101,7 @@
         //layer.msg(JSON.stringify(data.field));
         $.post("/reg", form_data.field, function(bee_data){
             if (bee_data.code=="AAAA") {                      //json的code
-                layer.msg("注册成功, 但你的账号尚未激活, 请前往你的邮箱激活", { icon: 1, time: 3000})
+                layer.msg("注册成功, 请前往你的邮箱激活; 如果没收到邮件, 请检查你的垃圾邮箱!", { icon: 1, time: 4000})
                 if (bee_data.action) {                  //json的action
                     setTimeout(function () {
                         window.location.href=bee_data.action;
