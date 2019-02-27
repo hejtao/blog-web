@@ -18,7 +18,7 @@ func (this *NoteController) NextControllerPrepare() {
 	}
 
 	if this.User.Role == 10 { //是游客
-		this.Abort500(my_errors.New("权限不足", nil))
+		this.Abort500(my_errors.UnactivatedError{})
 	}
 }
 

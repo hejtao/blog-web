@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+	"github.com/astaxie/beego"
 	"github.com/jiangtaohe/blog-web/models"
 	"github.com/jiangtaohe/blog-web/my_errors"
 )
@@ -36,6 +38,10 @@ func (this *CommentController) SaveComment() {
 		this.Abort500(my_errors.NotLoginError{})
 	}
 
+	if this.User.Role == 10 { //未激活
+		this.Abort500(my_errors.UnactivatedError{})
+	}
+
 	key := this.Ctx.Input.Param(":key")
 	content := this.GetString("content", "")
 	comment_key := this.UUID()
@@ -56,6 +62,7 @@ func (this *CommentController) SaveComment() {
 			StringMap{
 				"code":    3333,
 				"message": cmt,
+				"action":  "/message",
 			},
 		)
 	} else {
@@ -67,6 +74,33 @@ func (this *CommentController) SaveComment() {
 			},
 		)
 	}
+
+}
+
+///comment_config
+// @router /delete [get]
+func (this *CommentController) DeleteComment() {
+	if !this.IsLogin { //未登录
+		this.Abort500(my_errors.NotLoginError{})
+	}
+
+	if this.User.Role == 10 { //未激活
+		this.Abort500(my_errors.UnactivatedError{})
+	}
+
+	comment_key := this.GetString("comment_key", "")
+	page, err := this.GetInt("page", 1)
+	if err != nil || page < 1 {
+		page = 1
+	}
+
+	err = models.DeleteCommentWithKey(comment_key)
+	if err != nil {
+		this.Abort500(my_errors.New("删除留言或评论时发生系统错误", nil))
+	}
+
+	url := fmt.Sprintf("/message?page=%d", page)
+	this.Redirect(url, 302)
 
 }
 
@@ -115,6 +149,16 @@ func (this *CommentController) CommentPageination() {
 		this.Abort500(my_errors.New("系统错误", err))
 	}
 
+	var dates []string
+	for i := 0; i < len(comments); i++ {
+
+		dates = append(
+			dates,
+			beego.Date(comments[i].CreatedAt, "m-d H:i"),
+		)
+
+	}
+
 	user := this.User
 
 	this.ReturnJson(
@@ -123,6 +167,7 @@ func (this *CommentController) CommentPageination() {
 			"comments": comments,
 			"user":     user,
 			"is_login": this.IsLogin,
+			"dates":    dates,
 		},
 	)
 }

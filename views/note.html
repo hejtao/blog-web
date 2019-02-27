@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评论-闲言轻博客</title>
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 {{template "comm/link.html"}}
 </head>
 <body class="lay-blog">
@@ -13,7 +15,7 @@
 		<div class="container container-message container-details">
 			<div class="contar-wrap">
 				<div class="item">
-					<div class="item-box  layer-photos-demo1 layer-photos-demo">
+					<div class="item-box">
 						{{template "comm/note_content.html" .note}}
 						<div class="count layui-clear">
 							<span class="pull-left">阅读 <em class="value"> {{add .note.Visits 1}} </em></span>
@@ -32,11 +34,17 @@
 
 					<br>
 					<form class="layui-form" action="">
-			                <div class="layui-form-item layui-form-text">
-			                    <textarea class="xiaohe layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none;"></textarea>
+			                <div class="layui-form-item">
+			                    <textarea class="layui-textarea" id="LAY-msg-content" placeholder="写点什么啊" style="resize:none;">
+
+			                    </textarea>
 			                </div>
+
+							<!-- <div class="layui-form-item">
+			                	<button class="layui-btn layui-btn-normal"  id="item-btn-cmt">提交</button>
+			            	</div> -->
 		            </form>
-		            <div class="item-btn pull-right">
+		            <div class="item-btn pull-left">
 		                <button class="layui-btn layui-btn-normal" id="item-btn-cmt">提交</button>
 		            </div>
 		            {{end}}
@@ -57,66 +65,44 @@
 	{{template "comm/footer.html" .}}
 
 
-	<!-- {{str2html `<script id="LAY-msg-tpl" type="text/html">
-				   
-				   
-				        <div class="info-item">
-				            <img class="info-img" style="max-height: 35px" src="{{ d.avatar }}" alt="">
-				            <div class="info-text">
-				                <p class="title count">
-				                    <span class="name">{{ d.name }}</span>
-
-				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
-				                    	<span class="value">{{ d.likes }}</span>
-									</span>
-				                </p>
-
-				                <p class="info-intr">
-				                {{ d.content }}
-				                </p>
-
-				                <p>	
-									<a href="" class="name pull-right" style="padding-right:30px">删除</a>
-				                </p>
-
-				            </div>
-				        </div>
-				   
-				    
-				</script>`}} -->
-
-
 	{{str2html `<script id="LAY-msg-tpl-a" type="text/html">
-				    
-				        <div class="info-item-cmt">
-				            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
-				            <div class="info-text-cmt">
-				                <p class="title count">
-				                    <span class="name">{{ d.name }}</span>
-				                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
-				                    <span class="value">{{ d.likes }}</span>
-									 	</span>
-				                </p>
 
-				                <p class="info-intr">
-				                {{ d.content }}
-				                </p>
-				</script>`}}
+                                        <div class="info-item-cmt">
+                                            <img class="info-img-cmt" style="max-height: 35px;" src="{{ d.avatar }}" alt="">
+
+                                            <div class="info-text-cmt">
+                                                <p class="title count">
+                                                    <span class="name">{{ d.name }}</span>
+                                                    <span class="info-img like" data-key="{{ d.key }}" data-type="message"><i class="layui-icon layui-icon-praise"></i>
+                                                    <span class="value">{{ d.likes }}</span>
+                                                                                </span>
+                                                </p>
+
+                                                <p class="info-intr">
+                                                {{ d.content }}
+                                                </p>
+
+                                                <br>
+												<p>
+													<span style="color:#a5a5a5" >{{ d.date }}</span>
+                                </script>`}}
 
 	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
-				                <p class="delete-cmt">
-									<span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
-									<hr style="width:70px; margin-left:600px">
-								</p>
-				</script>`}}
+
+													<span class="info-img like pull-right" data-key="{{ d.key }}" data-type="delete-cmt" style="float: right; padding-right: 16px; color:#a5a5a5">删除</span>
+													<hr style="width:70px; margin-left:600px">
+												</p>
+                                </script>`}}
 
 
 	{{str2html `<script id="LAY-msg-tpl-c" type="text/html">
 
-				            </div>
-				        </div>
-				    
-				</script>`}}
+                                            </div>
+                                        </div>
+
+                                </script>`}}
+
+
 
 
 	{{if fix_bar .user.ID .note.AuthorID .user.Role .isLogin}}

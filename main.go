@@ -2,9 +2,11 @@ package main
 
 import (
 	"encoding/gob"
+	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/jiangtaohe/blog-web/models"
 	_ "github.com/jiangtaohe/blog-web/routers" //调用routers 的 init 方法
+	"strings"
 )
 
 func initTemplate() {
@@ -30,6 +32,36 @@ func initTemplate() {
 		"and",
 		func(a, b bool) bool {
 			if a && b {
+				return true
+			}
+			return false
+		},
+	)
+
+	beego.AddFuncMap(
+		"include",
+		func(a, b interface{}) bool {
+			if strings.Index(fmt.Sprintf("%v", b), fmt.Sprintf("%v", a)) == 0 {
+				return true
+			}
+			return false
+		},
+	)
+
+	//beego.AddFuncMap(
+	//	"include",
+	//	func(a, b string) bool {
+	//		if strings.Index(b, a) == 0 {
+	//			return true
+	//		}
+	//		return false
+	//	},
+	//)
+
+	beego.AddFuncMap(
+		"home",
+		func(path interface{}) bool {
+			if beego.Compare(path, "/") || strings.Index(fmt.Sprintf("%v", path), "/?") == 0 {
 				return true
 			}
 			return false

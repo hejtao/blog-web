@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>评论-闲言轻博客</title>
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{template "comm/link.html"}}
@@ -25,21 +26,19 @@
       {{template "comm/header.html"}}
 
     <div class="container-wrap">
-        <div class="container">
+        <div class="container" style="color:#fff">
             
-                <div class="item-login">
                  
                 
 
 
                     <form class="form-signin layui-form text-center">
-                      <img class="mb-4" src="/static/images/admin.png" alt="" width="72" height="72">
                       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                      
                       <input type="email" name="email" class="form-control" placeholder="邮箱" required autofocus lay-verify="required">
                      
                       <input type="password" name="password" class="form-control" placeholder="密码" required autofocus lay-verify="required">
-                      <div class="checkbox mb-3">
+                      <div class="checkbox mb-3" style="color:#fff">
                        
                           <input type="checkbox" name="checkbox">记住本次登陆
                         
@@ -47,12 +46,10 @@
                       <button class="btn btn-lg btn-primary btn-block" lay-submit lay-filter="login">登陆</button> 
                       <button class="btn btn-lg btn-secondary btn-block" onclick="window.location.href='/reg'">注册</button>
                       
-                      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
                     </form>
 
 
                 
-                </div>
                
         </div>
     </div>

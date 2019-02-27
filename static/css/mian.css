@@ -4,7 +4,7 @@
  @Author：xuzhiwen
  @Site：http://www.layui.com/template/xianyan/
  @License：MIT
- 
+
  */
 
 
@@ -31,7 +31,12 @@ html,body{
 body{
 	font-size: 1.2rem;
 	line-height: 1.5;
-	background: #f2f2f2;
+	background-size: cover;
+    background-image: url(/static/images/background.jpg); 
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: scroll;
+
 }
 
 
@@ -50,7 +55,7 @@ body{
 	height: 100px;
 	margin-bottom: -100px;
 	line-height:100px;
-	background: #2568A3;
+	background: rgba(0,0,0,0.5);
 }
 .lay-blog .logo-img{
 	height:65px;
@@ -64,7 +69,7 @@ body{
 }
 .lay-blog .blog-sebox{
 	position:relative;
-	margin-left: 0; 
+	margin-left: 0;
     min-height: auto;
 }
 .lay-blog .blog-seach i{
@@ -134,7 +139,7 @@ body{
 	left:0px;
 	top:100px;
 	text-align:center;
-	background:#1e9fff;
+	background: rgba(0,0,0,0.5);
 	display:none;
 	z-index: 2;
 }
@@ -192,15 +197,18 @@ body{
 /* start container */
 .lay-blog .container-wrap{margin:0px auto 0;min-height:100%;padding:120px 0 160px 0;box-sizing: border-box;}
 .lay-blog .container{width:800px;margin:0 auto;}
-.lay-blog .container h4{margin-bottom: 15px; line-height: 70px;background: #fff;font-size:16px;}
+.lay-blog .container h4{margin-bottom: 15px; line-height: 70px;background: #fff;font-size:16px; border-radius: 5px}
 .lay-blog .container h4 p{padding-left:40px;color:#666666;}
 .lay-blog .container h4 p i{font-size:26px;padding-right:10px;position:relative;top:3px;}
-.lay-blog .container .item{margin-bottom: 15px; background: #fff; padding-top: 20px;}
+.lay-blog .container .item{margin-bottom: 15px; background: #fff; padding-top: 20px; border-radius: 5px; background:rgba(255,255,255,0.95);}
 
 .lay-blog .container .item-login{background: transparent; width:350px;margin:0 auto; flex-wrap: wrap;}
-.lay-blog .container .item-msg{margin-bottom: 15px; background: transparent; padding-top: 20px;}
+.lay-blog .container .item-msg{margin-bottom: 15px; background: rgba(255,255,255,0.8); padding-top: 20px;border-radius: 5px;}
 
 .lay-blog .container .item .item-box{padding:0 35px 24px;font-size:14px;}
+
+.lay-blog .container .item-msg .item-box{padding:0 35px 24px;font-size:14px;}
+
 .lay-blog .container .item h3{line-height:36px;font-size:20px;}
 .lay-blog .container .item h5{line-height: 38px;color:#a5a5a5;}
 .lay-blog .container .item p{line-height:30px; padding-bottom: 10px;}
@@ -224,7 +232,7 @@ body{
 */
 
 /* start foooter */ .lay-blog .footer{width: 100%; padding: 30px 0; line-height: 30px
-	;background: #23262e; color: #fff; color: rgba(255,255,255,0.5); font-size: 14px; text-align:center;margin-top: -120px;}
+	;background: rgba(0,0,0,0.5); color: #fff; color: rgba(255,255,255,0.5); font-size: 14px; text-align:center;margin-top: -120px;}
 .lay-blog .footer span{padding: 0 5px;}
 .lay-blog .footer a{color: #fff; color: rgba(255,255,255,0.5);}
 
@@ -241,23 +249,24 @@ body{
 	text-align: right;
 }
 .lay-blog .container-message .item-btn{margin-bottom: 50px;}
-.lay-blog .container-message .info-item{font-size:14px;margin-bottom: 40px;}
+.lay-blog .container-message .info-item{font-size:14px;margin-top: 40px;}
 .lay-blog .container-message .info-img{cursor: pointer;float: left;padding-right:0;}
-.lay-blog .container-message .info-text{padding-left:120px;}
+.lay-blog .container-message .info-text{padding-left:75px;}
 
 .lay-blog .container-message .info-item-cmt{font-size:14px;margin-bottom: 30px;}
+.lay-blog .container-message .cmt-box{background: rgba(255,255,255,0.7);border-radius: 5px; padding-right:6px;padding-left:6px;}
 .lay-blog .container-message .info-img-cmt{cursor: pointer;float: left;padding-top:6px;}
-.lay-blog .container-message .info-text-cmt{padding-left:50px;}
+.lay-blog .container-message .info-text-cmt{padding-left: 45px;}
 
 .lay-blog .container-message .title{overflow:hidden;margin-bottom:0;}
 .lay-blog .container-message .title .name{float: left; display: block; line-height: 38px; color:#787878;}
 .info-intr{line-height: 24px;}
-.lay-blog .container-message .title .info-img{float: right;font-size;color:#4b5a75;}
-.lay-blog .container-message .title .info-img i{font-size: 24px;padding-right: 5px;position: relative;top: 4px;} 
+.lay-blog .container-message .title .info-img{float: right;color:#4b5a75;}
+.lay-blog .container-message .title .info-img i{font-size: 24px;padding-right: 5px;position: relative;top: 4px;}
 .lay-blog .container-message .paging{text-align:center;padding-top:30px;}
 /* end message*/
 
-
+.lay-blog .textarea{min-height:100px;height:auto;line-height:20px;margin-top:30px; border-radius: 5px; padding:6px 10px;resize:vertical}
 
 
 /* start details */
@@ -319,3 +328,4 @@ body{
 
 
 /*end comment*/
+

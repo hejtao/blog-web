@@ -1,5 +1,5 @@
-<div class="item-box  layer-photos-demo1 layer-photos-demo">
+<div class="layer-photos-demo1 layer-photos-demo">
 	<h3> {{.Title}} </h3>
-	<h5> <span> {{date .CreatedAt "Y-m-d h:i:s"}} </span>&nbsp&nbsp<span> {{ .Author.Name }} </span></h5>
+	<h5> <span> {{date .CreatedAt "Y-m-d H:i:s"}} </span>&nbsp&nbsp<span> {{ .Author.Name }} </span></h5>
 	<p> {{str2html .Content}} </p>
 </div>

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>留言-闲言轻博客</title>
+    <link rel="shortcut icon" href="/static/images/icon.png" >
+    <title>Meetoo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {{template "comm/link.html"}}
 </head>
@@ -50,11 +51,14 @@
 				                <p class="info-intr">
 				                {{ d.content }}
 				                </p>
+
+				                <br>
+								<p>
+									<span style="color:#a5a5a5" >{{ d.date }}</span>
 				</script>`}}
 
 	{{str2html `<script id="LAY-msg-tpl-b" type="text/html">
-		                	
-								<p>
+		                		
 									<span class="info-img like" data-key="{{ d.key }}" data-type="delete-msg" style="float: right; padding-right: 13px; color:#a5a5a5">删除</span> 
 								</p>	
 		                

@@ -14,9 +14,9 @@ login-body {
 }
 
 .form-signin {
-  width: 100%;
+  width: 90%;
   max-width: 330px;
-  padding: 15px;
+  padding: 5px;
   margin: auto;
 }
 .form-signin .checkbox {
@@ -42,3 +42,4 @@ login-body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
