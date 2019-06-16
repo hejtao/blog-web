@@ -13,25 +13,25 @@
 
 			<div class="container container-message">
 				<div class="contar-wrap">
+
+					{{if .isLogin}}
+					<form class="layui-form" action="">					
+						<div class="layui-form-item layui-textarea" id="editor2" contenteditable="true"></div>
+
+						<div class="layui-form-item">
+							<button lay-submit class="layui-btn" lay-filter="save-msg">
+								提交
+							</button>
+						</div>
+
+					</form>
+                                            
+					{{end}}
+
+                                         <br>
+
 					 <div class="item-msg">
-						<div class="item-box">
-							{{if .isLogin}}
-							<form class="layui-form" action="">					
-								<div class="layui-form-item layui-textarea" id="editor2" contenteditable="true"></div>
-
-								<div class="layui-form-item">
-									<button lay-submit class="layui-btn" lay-filter="save-msg">
-										提交
-									</button>
-								</div>
-
-							</form>
-
-							<br>
-
-							{{end}}
-
-
+						
 							{{ range .comments }}
 							<div class="info-item">
 								<img class="info-img" style="max-height: 50px" src="{{ .Author.Avatar }}" alt="">
@@ -47,11 +47,12 @@
 									{{str2html .Content }}
 									</p>
 
+									
 									<br>
 									<p>
-										<span style="color:#a5a5a5" >{{ date .CreatedAt "m-d H:i" }}</span>
+										<span style="color:#666666" >{{ date .CreatedAt "m-d H:i" }}</span>
 										
-                                                                                {{if fix_bar $.user.ID .AuthorID $.user.Role $.isLogin}}
+                                         {{if fix_bar $.user.ID .AuthorID $.user.Role $.isLogin}}
 										<a href="/comment_config/delete?page={{$.page}}&comment_key={{.CommentKey}}" style="float: right; padding-right: 13px; color:#a5a5a5">删除</a>
 									       {{end}}
 									</p>
@@ -59,7 +60,7 @@
 								</div>
 							</div>
 							{{end}}	
-						</div>
+						
 					 </div>
 
 
@@ -156,5 +157,6 @@
 
 </body>
 </html>
+
 
 

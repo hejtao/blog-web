@@ -125,7 +125,7 @@ func (this *UserController) sendEmail(name, email, password, md5 string) error {
 								                                <p>您于 %s 在 Meetoo 完成了注册，账号密码为: %s</p>
 								                                <p>请您点击下面的链接激活账户，</p>
 								                                
-								                                <p><a href="http://jiangtao.fun/activation/%s">http://jiangtao.fun/activation/%s</a></p>							     
+								                                <p><a href="http://jiangtao.fun/activation/%s">http://jiangtao.fun/activation/%s</a></p>
 
 								                                <p>如果您没有在 Meetoo 注册，请忽略该邮件。</p>
 
@@ -173,3 +173,4 @@ func (this *UserController) Logout() {
 	//this.IsLogin = false
 	this.Redirect("/", 302)
 }
+
